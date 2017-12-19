@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace COMP212_Midterm_POSSystem
+namespace COMP212_Midterm_SalePOS
 {
     /// <summary>
     /// This class defines the main menu (POS).
@@ -33,6 +33,15 @@ namespace COMP212_Midterm_POSSystem
         private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        /// <summary>
+        /// This handler opens the management form when the management button is clicked.
+        /// </summary>
+        private void ManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.managementForm.Show();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace COMP212_Midterm_POSSystem
+﻿namespace COMP212_Midterm_SalePOS
 {
     partial class MainMenu
     {
@@ -30,13 +30,14 @@
         {
             this.MainMenuMenuStrip = new System.Windows.Forms.MenuStrip();
             this.POSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutDeveloperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StoreNameToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.CurrentFormToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.MainMenuMenuStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -45,7 +46,7 @@
             // 
             this.MainMenuMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.POSToolStripMenuItem,
-            this.managementToolStripMenuItem,
+            this.ManagementToolStripMenuItem,
             this.statisticsToolStripMenuItem,
             this.setupToolStripMenuItem,
             this.logoutToolStripMenuItem,
@@ -62,11 +63,12 @@
             this.POSToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.POSToolStripMenuItem.Text = "POS";
             // 
-            // managementToolStripMenuItem
+            // ManagementToolStripMenuItem
             // 
-            this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
-            this.managementToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.managementToolStripMenuItem.Text = "Management";
+            this.ManagementToolStripMenuItem.Name = "ManagementToolStripMenuItem";
+            this.ManagementToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.ManagementToolStripMenuItem.Text = "Management";
+            this.ManagementToolStripMenuItem.Click += new System.EventHandler(this.ManagementToolStripMenuItem_Click);
             // 
             // statisticsToolStripMenuItem
             // 
@@ -95,18 +97,25 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            this.StoreNameToolStripStatusLabel,
+            this.CurrentFormToolStripStatusLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 478);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(690, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // StoreNameToolStripStatusLabel
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.StoreNameToolStripStatusLabel.Name = "StoreNameToolStripStatusLabel";
+            this.StoreNameToolStripStatusLabel.Size = new System.Drawing.Size(115, 17);
+            this.StoreNameToolStripStatusLabel.Text = "Centennial Catering:";
+            // 
+            // CurrentFormToolStripStatusLabel
+            // 
+            this.CurrentFormToolStripStatusLabel.Name = "CurrentFormToolStripStatusLabel";
+            this.CurrentFormToolStripStatusLabel.Size = new System.Drawing.Size(68, 17);
+            this.CurrentFormToolStripStatusLabel.Text = "Main Menu";
             // 
             // MainMenu
             // 
@@ -117,7 +126,7 @@
             this.Controls.Add(this.MainMenuMenuStrip);
             this.MainMenuStrip = this.MainMenuMenuStrip;
             this.Name = "MainMenu";
-            this.Text = "MainMenu";
+            this.Text = "Main Menu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenu_FormClosed);
             this.MainMenuMenuStrip.ResumeLayout(false);
             this.MainMenuMenuStrip.PerformLayout();
@@ -132,12 +141,13 @@
 
         private System.Windows.Forms.MenuStrip MainMenuMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem POSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem managementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem statisticsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutDeveloperToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel StoreNameToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel CurrentFormToolStripStatusLabel;
     }
 }

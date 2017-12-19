@@ -11,12 +11,12 @@ using System.Windows.Forms;
 /// Student#: 300869273
 /// Date Created: December 18, 2017
 /// Description: This app is a POS system for catering services.
-/// Version: 0.0.1 - Initial commit.
-/// TODO switch form swap mechanism 
+/// Version: 0.0.2 - Added ManagementForm.cs, accessible from main menu.
+/// TODO 
 /// ==================================================================================================
 /// 
 
-namespace COMP212_Midterm_POSSystem
+namespace COMP212_Midterm_SalePOS
 {
     /// <summary>
     /// This is the driver class of the program.
@@ -25,7 +25,8 @@ namespace COMP212_Midterm_POSSystem
     {
         // Declaring form variables to initialize in main method
         public static LoginForm loginForm;
-        public static MainMenu salePOS;
+        public static MainMenu mainMenu;
+        public static ManagementForm managementForm;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -39,7 +40,8 @@ namespace COMP212_Midterm_POSSystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             loginForm = new LoginForm();
-            salePOS = new MainMenu();
+            mainMenu = new MainMenu();
+            managementForm = new ManagementForm();
             Application.Run(loginForm);
         }
     }

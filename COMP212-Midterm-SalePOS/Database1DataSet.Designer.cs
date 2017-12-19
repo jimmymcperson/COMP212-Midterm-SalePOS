@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace COMP212_Midterm_POSSystem {
+namespace COMP212_Midterm_SalePOS {
     
     
     /// <summary>
@@ -680,7 +680,7 @@ namespace COMP212_Midterm_POSSystem {
         }
     }
 }
-namespace COMP212_Midterm_POSSystem.Database1DataSetTableAdapters {
+namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
     
     
     /// <summary>
@@ -843,7 +843,7 @@ namespace COMP212_Midterm_POSSystem.Database1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::COMP212_Midterm_POSSystem.Properties.Settings.Default.Database1ConnectionString;
+            this._connection.ConnectionString = global::COMP212_Midterm_SalePOS.Properties.Settings.Default.Database1ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

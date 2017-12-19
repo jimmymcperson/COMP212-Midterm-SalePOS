@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace COMP212_Midterm_POSSystem.Properties
+namespace COMP212_Midterm_SalePOS.Properties
 {
 
 

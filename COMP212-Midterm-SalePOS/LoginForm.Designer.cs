@@ -1,4 +1,4 @@
-﻿namespace COMP212_Midterm_POSSystem
+﻿namespace COMP212_Midterm_SalePOS
 {
     partial class LoginForm
     {

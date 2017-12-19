@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 
-namespace COMP212_Midterm_POSSystem
+namespace COMP212_Midterm_SalePOS
 {
     /// <summary>
     /// This class defines a login form.
@@ -70,7 +70,7 @@ namespace COMP212_Midterm_POSSystem
                     {
                         FailedLoginAttempts = 0;
                         this.Hide();
-                        Program.salePOS.Show();
+                        Program.mainMenu.Show();
                     }
                     else
                     {
