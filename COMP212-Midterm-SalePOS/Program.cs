@@ -12,7 +12,7 @@ using System.Windows.Forms;
 /// Date Created: December 18, 2017
 /// Description: This app is a POS system for catering services.
 /// Version: 0.0.1 - Initial commit.
-/// TODO switch form swap mechanism
+/// TODO switch form swap mechanism 
 /// ==================================================================================================
 /// 
 
