@@ -11,7 +11,7 @@ using System.Windows.Forms;
 /// Student#: 300869273
 /// Date Created: December 18, 2017
 /// Description: This app is a POS system for catering services.
-/// Version: 0.0.2 - Added ManagementForm.cs, accessible from main menu.
+/// Version: 0.0.3 - Updated ManagementForm.cs.
 /// TODO 
 /// ==================================================================================================
 /// 
