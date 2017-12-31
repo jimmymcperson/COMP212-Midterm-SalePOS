@@ -45,11 +45,11 @@
             this.IDTextBox = new System.Windows.Forms.TextBox();
             this.DescriptionLabel = new System.Windows.Forms.Label();
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
-            this.SearchByLabel = new System.Windows.Forms.Label();
-            this.SearchByComboBox = new System.Windows.Forms.ComboBox();
+            this.SearchCategoryLabel = new System.Windows.Forms.Label();
+            this.SearchCategoryComboBox = new System.Windows.Forms.ComboBox();
             this.AddProductButton = new System.Windows.Forms.Button();
-            this.SearchLabel = new System.Windows.Forms.Label();
-            this.SearchTextBox = new System.Windows.Forms.TextBox();
+            this.SearchProductNameLabel = new System.Windows.Forms.Label();
+            this.SearchProductNameTextBox = new System.Windows.Forms.TextBox();
             this.ProductsDataGridView = new System.Windows.Forms.DataGridView();
             this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,9 +63,12 @@
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.database1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.database1DataSet = new COMP212_Midterm_SalePOS.Database1DataSet();
-            this.SearchButton = new System.Windows.Forms.Button();
-            this.ClearButton = new System.Windows.Forms.Button();
             this.productTableAdapter = new COMP212_Midterm_SalePOS.Database1DataSetTableAdapters.ProductTableAdapter();
+            this.SearchProductIDLabel = new System.Windows.Forms.Label();
+            this.SearchProductIDTextBox = new System.Windows.Forms.TextBox();
+            this.NoteLabel = new System.Windows.Forms.Label();
+            this.SearchByLabel = new System.Windows.Forms.Label();
+            this.RefreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProductsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSetBindingSource)).BeginInit();
@@ -207,23 +210,24 @@
             this.DescriptionTextBox.Size = new System.Drawing.Size(638, 72);
             this.DescriptionTextBox.TabIndex = 15;
             // 
-            // SearchByLabel
+            // SearchCategoryLabel
             // 
-            this.SearchByLabel.AutoSize = true;
-            this.SearchByLabel.Location = new System.Drawing.Point(17, 300);
-            this.SearchByLabel.Name = "SearchByLabel";
-            this.SearchByLabel.Size = new System.Drawing.Size(59, 13);
-            this.SearchByLabel.TabIndex = 16;
-            this.SearchByLabel.Text = "Search By:";
+            this.SearchCategoryLabel.AutoSize = true;
+            this.SearchCategoryLabel.Location = new System.Drawing.Point(233, 303);
+            this.SearchCategoryLabel.Name = "SearchCategoryLabel";
+            this.SearchCategoryLabel.Size = new System.Drawing.Size(49, 13);
+            this.SearchCategoryLabel.TabIndex = 16;
+            this.SearchCategoryLabel.Text = "Category";
             // 
-            // SearchByComboBox
+            // SearchCategoryComboBox
             // 
-            this.SearchByComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SearchByComboBox.FormattingEnabled = true;
-            this.SearchByComboBox.Location = new System.Drawing.Point(82, 292);
-            this.SearchByComboBox.Name = "SearchByComboBox";
-            this.SearchByComboBox.Size = new System.Drawing.Size(137, 21);
-            this.SearchByComboBox.TabIndex = 17;
+            this.SearchCategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SearchCategoryComboBox.FormattingEnabled = true;
+            this.SearchCategoryComboBox.Location = new System.Drawing.Point(288, 300);
+            this.SearchCategoryComboBox.Name = "SearchCategoryComboBox";
+            this.SearchCategoryComboBox.Size = new System.Drawing.Size(137, 21);
+            this.SearchCategoryComboBox.TabIndex = 17;
+            this.SearchCategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.SearchCategoryComboBox_SelectedIndexChanged);
             // 
             // AddProductButton
             // 
@@ -234,21 +238,22 @@
             this.AddProductButton.Text = "Add Product";
             this.AddProductButton.UseVisualStyleBackColor = true;
             // 
-            // SearchLabel
+            // SearchProductNameLabel
             // 
-            this.SearchLabel.AutoSize = true;
-            this.SearchLabel.Location = new System.Drawing.Point(371, 300);
-            this.SearchLabel.Name = "SearchLabel";
-            this.SearchLabel.Size = new System.Drawing.Size(44, 13);
-            this.SearchLabel.TabIndex = 19;
-            this.SearchLabel.Text = "Search:";
+            this.SearchProductNameLabel.AutoSize = true;
+            this.SearchProductNameLabel.Location = new System.Drawing.Point(450, 304);
+            this.SearchProductNameLabel.Name = "SearchProductNameLabel";
+            this.SearchProductNameLabel.Size = new System.Drawing.Size(72, 13);
+            this.SearchProductNameLabel.TabIndex = 19;
+            this.SearchProductNameLabel.Text = "ProductName";
             // 
-            // SearchTextBox
+            // SearchProductNameTextBox
             // 
-            this.SearchTextBox.Location = new System.Drawing.Point(421, 293);
-            this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(163, 20);
-            this.SearchTextBox.TabIndex = 20;
+            this.SearchProductNameTextBox.Location = new System.Drawing.Point(528, 300);
+            this.SearchProductNameTextBox.Name = "SearchProductNameTextBox";
+            this.SearchProductNameTextBox.Size = new System.Drawing.Size(145, 20);
+            this.SearchProductNameTextBox.TabIndex = 20;
+            this.SearchProductNameTextBox.TextChanged += new System.EventHandler(this.SearchProductNameTextBox_TextChanged);
             // 
             // ProductsDataGridView
             // 
@@ -340,43 +345,71 @@
             this.database1DataSet.DataSetName = "Database1DataSet";
             this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // SearchButton
-            // 
-            this.SearchButton.Location = new System.Drawing.Point(590, 290);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(75, 23);
-            this.SearchButton.TabIndex = 22;
-            this.SearchButton.Text = "Search";
-            this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
-            // 
-            // ClearButton
-            // 
-            this.ClearButton.Location = new System.Drawing.Point(671, 290);
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(75, 23);
-            this.ClearButton.TabIndex = 23;
-            this.ClearButton.Text = "Clear";
-            this.ClearButton.UseVisualStyleBackColor = true;
-            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
-            // 
             // productTableAdapter
             // 
             this.productTableAdapter.ClearBeforeFill = true;
+            // 
+            // SearchProductIDLabel
+            // 
+            this.SearchProductIDLabel.AutoSize = true;
+            this.SearchProductIDLabel.Location = new System.Drawing.Point(90, 303);
+            this.SearchProductIDLabel.Name = "SearchProductIDLabel";
+            this.SearchProductIDLabel.Size = new System.Drawing.Size(55, 13);
+            this.SearchProductIDLabel.TabIndex = 24;
+            this.SearchProductIDLabel.Text = "ProductID";
+            // 
+            // SearchProductIDTextBox
+            // 
+            this.SearchProductIDTextBox.Location = new System.Drawing.Point(151, 300);
+            this.SearchProductIDTextBox.Name = "SearchProductIDTextBox";
+            this.SearchProductIDTextBox.Size = new System.Drawing.Size(44, 20);
+            this.SearchProductIDTextBox.TabIndex = 25;
+            this.SearchProductIDTextBox.TextChanged += new System.EventHandler(this.SearchProductIDTextBox_TextChanged);
+            // 
+            // NoteLabel
+            // 
+            this.NoteLabel.AutoSize = true;
+            this.NoteLabel.Location = new System.Drawing.Point(16, 531);
+            this.NoteLabel.Name = "NoteLabel";
+            this.NoteLabel.Size = new System.Drawing.Size(267, 13);
+            this.NoteLabel.TabIndex = 26;
+            this.NoteLabel.Text = "Note: double click product to update or delete the item.";
+            // 
+            // SearchByLabel
+            // 
+            this.SearchByLabel.AutoSize = true;
+            this.SearchByLabel.Location = new System.Drawing.Point(18, 273);
+            this.SearchByLabel.Name = "SearchByLabel";
+            this.SearchByLabel.Size = new System.Drawing.Size(58, 13);
+            this.SearchByLabel.TabIndex = 27;
+            this.SearchByLabel.Text = "Search by:";
+            // 
+            // RefreshButton
+            // 
+            this.RefreshButton.Location = new System.Drawing.Point(641, 7);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(105, 23);
+            this.RefreshButton.TabIndex = 28;
+            this.RefreshButton.Text = "Refresh";
+            this.RefreshButton.UseVisualStyleBackColor = true;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // ManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 522);
-            this.Controls.Add(this.ClearButton);
-            this.Controls.Add(this.SearchButton);
-            this.Controls.Add(this.ProductsDataGridView);
-            this.Controls.Add(this.SearchTextBox);
-            this.Controls.Add(this.SearchLabel);
-            this.Controls.Add(this.AddProductButton);
-            this.Controls.Add(this.SearchByComboBox);
+            this.ClientSize = new System.Drawing.Size(758, 556);
+            this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.SearchByLabel);
+            this.Controls.Add(this.NoteLabel);
+            this.Controls.Add(this.SearchProductIDTextBox);
+            this.Controls.Add(this.SearchProductIDLabel);
+            this.Controls.Add(this.ProductsDataGridView);
+            this.Controls.Add(this.SearchProductNameTextBox);
+            this.Controls.Add(this.SearchProductNameLabel);
+            this.Controls.Add(this.AddProductButton);
+            this.Controls.Add(this.SearchCategoryComboBox);
+            this.Controls.Add(this.SearchCategoryLabel);
             this.Controls.Add(this.DescriptionTextBox);
             this.Controls.Add(this.DescriptionLabel);
             this.Controls.Add(this.IDTextBox);
@@ -424,17 +457,15 @@
         private System.Windows.Forms.TextBox IDTextBox;
         private System.Windows.Forms.Label DescriptionLabel;
         private System.Windows.Forms.TextBox DescriptionTextBox;
-        private System.Windows.Forms.Label SearchByLabel;
-        private System.Windows.Forms.ComboBox SearchByComboBox;
+        private System.Windows.Forms.Label SearchCategoryLabel;
+        private System.Windows.Forms.ComboBox SearchCategoryComboBox;
         private System.Windows.Forms.Button AddProductButton;
-        private System.Windows.Forms.Label SearchLabel;
-        private System.Windows.Forms.TextBox SearchTextBox;
+        private System.Windows.Forms.Label SearchProductNameLabel;
+        private System.Windows.Forms.TextBox SearchProductNameTextBox;
         private System.Windows.Forms.DataGridView ProductsDataGridView;
         private System.Windows.Forms.BindingSource database1DataSetBindingSource;
         private Database1DataSet database1DataSet;
         private System.Windows.Forms.BindingSource productBindingSource;
-        private System.Windows.Forms.Button SearchButton;
-        private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
@@ -446,5 +477,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn insertionDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private Database1DataSetTableAdapters.ProductTableAdapter productTableAdapter;
+        private System.Windows.Forms.Label SearchProductIDLabel;
+        private System.Windows.Forms.TextBox SearchProductIDTextBox;
+        private System.Windows.Forms.Label NoteLabel;
+        private System.Windows.Forms.Label SearchByLabel;
+        private System.Windows.Forms.Button RefreshButton;
     }
 }
