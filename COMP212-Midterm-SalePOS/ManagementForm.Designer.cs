@@ -51,14 +51,8 @@
             this.SearchLabel = new System.Windows.Forms.Label();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.ProductsDataGridView = new System.Windows.Forms.DataGridView();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.database1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.database1DataSet = new COMP212_Midterm_SalePOS.Database1DataSet();
-            this.productTableAdapter = new COMP212_Midterm_SalePOS.Database1DataSetTableAdapters.ProductTableAdapter();
-            this.SearchButton = new System.Windows.Forms.Button();
-            this.ClearButton = new System.Windows.Forms.Button();
             this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.purchasePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +60,12 @@
             this.insertedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.insertionDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.database1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.database1DataSet = new COMP212_Midterm_SalePOS.Database1DataSet();
+            this.SearchButton = new System.Windows.Forms.Button();
+            this.ClearButton = new System.Windows.Forms.Button();
+            this.productTableAdapter = new COMP212_Midterm_SalePOS.Database1DataSetTableAdapters.ProductTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ProductsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSetBindingSource)).BeginInit();
@@ -210,7 +210,7 @@
             // SearchByLabel
             // 
             this.SearchByLabel.AutoSize = true;
-            this.SearchByLabel.Location = new System.Drawing.Point(79, 295);
+            this.SearchByLabel.Location = new System.Drawing.Point(17, 300);
             this.SearchByLabel.Name = "SearchByLabel";
             this.SearchByLabel.Size = new System.Drawing.Size(59, 13);
             this.SearchByLabel.TabIndex = 16;
@@ -220,7 +220,7 @@
             // 
             this.SearchByComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SearchByComboBox.FormattingEnabled = true;
-            this.SearchByComboBox.Location = new System.Drawing.Point(142, 292);
+            this.SearchByComboBox.Location = new System.Drawing.Point(82, 292);
             this.SearchByComboBox.Name = "SearchByComboBox";
             this.SearchByComboBox.Size = new System.Drawing.Size(137, 21);
             this.SearchByComboBox.TabIndex = 17;
@@ -237,7 +237,7 @@
             // SearchLabel
             // 
             this.SearchLabel.AutoSize = true;
-            this.SearchLabel.Location = new System.Drawing.Point(285, 295);
+            this.SearchLabel.Location = new System.Drawing.Point(371, 300);
             this.SearchLabel.Name = "SearchLabel";
             this.SearchLabel.Size = new System.Drawing.Size(44, 13);
             this.SearchLabel.TabIndex = 19;
@@ -245,7 +245,7 @@
             // 
             // SearchTextBox
             // 
-            this.SearchTextBox.Location = new System.Drawing.Point(335, 293);
+            this.SearchTextBox.Location = new System.Drawing.Point(421, 293);
             this.SearchTextBox.Name = "SearchTextBox";
             this.SearchTextBox.Size = new System.Drawing.Size(163, 20);
             this.SearchTextBox.TabIndex = 20;
@@ -257,7 +257,7 @@
             this.ProductsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ProductsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productIDDataGridViewTextBoxColumn,
-            this.productDataGridViewTextBoxColumn,
+            this.productNameDataGridViewTextBoxColumn,
             this.categoryDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
             this.purchasePriceDataGridViewTextBoxColumn,
@@ -271,56 +271,17 @@
             this.ProductsDataGridView.Size = new System.Drawing.Size(722, 176);
             this.ProductsDataGridView.TabIndex = 21;
             // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataMember = "Product";
-            this.productBindingSource.DataSource = this.database1DataSetBindingSource;
-            // 
-            // database1DataSetBindingSource
-            // 
-            this.database1DataSetBindingSource.DataSource = this.database1DataSet;
-            this.database1DataSetBindingSource.Position = 0;
-            // 
-            // database1DataSet
-            // 
-            this.database1DataSet.DataSetName = "Database1DataSet";
-            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productTableAdapter
-            // 
-            this.productTableAdapter.ClearBeforeFill = true;
-            // 
-            // SearchButton
-            // 
-            this.SearchButton.Location = new System.Drawing.Point(529, 290);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(75, 23);
-            this.SearchButton.TabIndex = 22;
-            this.SearchButton.Text = "Search";
-            this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
-            // 
-            // ClearButton
-            // 
-            this.ClearButton.Location = new System.Drawing.Point(610, 290);
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(75, 23);
-            this.ClearButton.TabIndex = 23;
-            this.ClearButton.Text = "Clear";
-            this.ClearButton.UseVisualStyleBackColor = true;
-            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
-            // 
             // productIDDataGridViewTextBoxColumn
             // 
             this.productIDDataGridViewTextBoxColumn.DataPropertyName = "ProductID";
             this.productIDDataGridViewTextBoxColumn.HeaderText = "ProductID";
             this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
             // 
-            // productDataGridViewTextBoxColumn
+            // productNameDataGridViewTextBoxColumn
             // 
-            this.productDataGridViewTextBoxColumn.DataPropertyName = "Product";
-            this.productDataGridViewTextBoxColumn.HeaderText = "Product";
-            this.productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
             // 
             // categoryDataGridViewTextBoxColumn
             // 
@@ -363,6 +324,45 @@
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataMember = "Product";
+            this.productBindingSource.DataSource = this.database1DataSetBindingSource;
+            // 
+            // database1DataSetBindingSource
+            // 
+            this.database1DataSetBindingSource.DataSource = this.database1DataSet;
+            this.database1DataSetBindingSource.Position = 0;
+            // 
+            // database1DataSet
+            // 
+            this.database1DataSet.DataSetName = "Database1DataSet";
+            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.Location = new System.Drawing.Point(590, 290);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(75, 23);
+            this.SearchButton.TabIndex = 22;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.Location = new System.Drawing.Point(671, 290);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearButton.TabIndex = 23;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
+            // productTableAdapter
+            // 
+            this.productTableAdapter.ClearBeforeFill = true;
             // 
             // ManagementForm
             // 
@@ -433,11 +433,11 @@
         private System.Windows.Forms.BindingSource database1DataSetBindingSource;
         private Database1DataSet database1DataSet;
         private System.Windows.Forms.BindingSource productBindingSource;
-        private Database1DataSetTableAdapters.ProductTableAdapter productTableAdapter;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Button ClearButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn purchasePriceDataGridViewTextBoxColumn;
@@ -445,5 +445,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn insertedByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn insertionDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private Database1DataSetTableAdapters.ProductTableAdapter productTableAdapter;
     }
 }

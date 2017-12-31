@@ -11,8 +11,8 @@ using System.Windows.Forms;
 /// Student#: 300869273
 /// Date Created: December 18, 2017
 /// Description: This app is a POS system for catering services.
-/// Version: 0.0.4 - Updated ManagementForm.cs. Bound data to category.  Added some functionality to search.
-/// TODO 
+/// Version: 0.0.5 - Updated ManagementForm.cs.
+/// TODO going to try dictionary to build sql statements
 /// ==================================================================================================
 /// 
 

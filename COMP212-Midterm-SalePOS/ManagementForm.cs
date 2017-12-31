@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Data;
 
 namespace COMP212_Midterm_SalePOS
 {
@@ -86,11 +87,12 @@ namespace COMP212_Midterm_SalePOS
         {
             // connect to db
             OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=database1.mdb");
-            OleDbCommand cmd = new OleDbCommand();
+            OleDbCommand cmd;
+
             // this if-else tree sets queries depending on which search criterion fields are filled/empty
             if (SearchByComboBox.SelectedItem == null && SearchTextBox.Text.Equals(""))
             {
-                MessageBox.Show("Please enter search criteria", "Error");
+                cmd = new OleDbCommand("select * from Product", con);
             }
             else if (SearchByComboBox.SelectedItem == null)
             {
@@ -109,11 +111,14 @@ namespace COMP212_Midterm_SalePOS
                 cmd = new OleDbCommand("select * from Product where ProductName = '" + searchEntry + "' and Category = '" + searchByEntry + "'", con);
             }
 
+            // display query on the table
             try
             {
                 con.Open();
                 OleDbDataReader rdr = cmd.ExecuteReader();
-                ProductsDataGridView.DataSource = rdr;
+                DataTable dt = new DataTable();
+                dt.Load(rdr);
+                ProductsDataGridView.DataSource = dt;
             }
             catch (System.Exception)
             {
@@ -124,6 +129,7 @@ namespace COMP212_Midterm_SalePOS
             {
                 con.Close();
             }
+
         }
     }
 }

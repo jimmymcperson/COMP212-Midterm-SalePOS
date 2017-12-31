@@ -1243,7 +1243,7 @@ namespace COMP212_Midterm_SalePOS {
             
             private global::System.Data.DataColumn columnProductID;
             
-            private global::System.Data.DataColumn columnProduct;
+            private global::System.Data.DataColumn columnProductName;
             
             private global::System.Data.DataColumn columnCategory;
             
@@ -1302,9 +1302,9 @@ namespace COMP212_Midterm_SalePOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ProductColumn {
+            public global::System.Data.DataColumn ProductNameColumn {
                 get {
-                    return this.columnProduct;
+                    return this.columnProductName;
                 }
             }
             
@@ -1401,11 +1401,11 @@ namespace COMP212_Midterm_SalePOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ProductRow AddProductRow(string Product, string Category, int Quantity, decimal Purchase_Price, decimal SalePrice, string InsertedBy, System.DateTime InsertionDate, string Description) {
+            public ProductRow AddProductRow(string ProductName, string Category, int Quantity, decimal Purchase_Price, decimal SalePrice, string InsertedBy, System.DateTime InsertionDate, string Description) {
                 ProductRow rowProductRow = ((ProductRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Product,
+                        ProductName,
                         Category,
                         Quantity,
                         Purchase_Price,
@@ -1443,7 +1443,7 @@ namespace COMP212_Midterm_SalePOS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnProductID = base.Columns["ProductID"];
-                this.columnProduct = base.Columns["Product"];
+                this.columnProductName = base.Columns["ProductName"];
                 this.columnCategory = base.Columns["Category"];
                 this.columnQuantity = base.Columns["Quantity"];
                 this.columnPurchase_Price = base.Columns["Purchase Price"];
@@ -1458,8 +1458,8 @@ namespace COMP212_Midterm_SalePOS {
             private void InitClass() {
                 this.columnProductID = new global::System.Data.DataColumn("ProductID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductID);
-                this.columnProduct = new global::System.Data.DataColumn("Product", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProduct);
+                this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductName);
                 this.columnCategory = new global::System.Data.DataColumn("Category", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCategory);
                 this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(int), null, global::System.Data.MappingType.Element);
@@ -1481,7 +1481,7 @@ namespace COMP212_Midterm_SalePOS {
                 this.columnProductID.AutoIncrementStep = -1;
                 this.columnProductID.AllowDBNull = false;
                 this.columnProductID.Unique = true;
-                this.columnProduct.MaxLength = 255;
+                this.columnProductName.MaxLength = 255;
                 this.columnCategory.MaxLength = 255;
                 this.columnInsertedBy.MaxLength = 255;
                 this.columnDescription.MaxLength = 255;
@@ -1856,17 +1856,17 @@ namespace COMP212_Midterm_SalePOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Product {
+            public string ProductName {
                 get {
                     try {
-                        return ((string)(this[this.tableProduct.ProductColumn]));
+                        return ((string)(this[this.tableProduct.ProductNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Product\' in table \'Product\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProductName\' in table \'Product\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableProduct.ProductColumn] = value;
+                    this[this.tableProduct.ProductNameColumn] = value;
                 }
             }
             
@@ -1984,14 +1984,14 @@ namespace COMP212_Midterm_SalePOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsProductNull() {
-                return this.IsNull(this.tableProduct.ProductColumn);
+            public bool IsProductNameNull() {
+                return this.IsNull(this.tableProduct.ProductNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetProductNull() {
-                this[this.tableProduct.ProductColumn] = global::System.Convert.DBNull;
+            public void SetProductNameNull() {
+                this[this.tableProduct.ProductNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3347,7 +3347,7 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Product";
             tableMapping.ColumnMappings.Add("ProductID", "ProductID");
-            tableMapping.ColumnMappings.Add("Product", "Product");
+            tableMapping.ColumnMappings.Add("ProductName", "ProductName");
             tableMapping.ColumnMappings.Add("Category", "Category");
             tableMapping.ColumnMappings.Add("Quantity", "Quantity");
             tableMapping.ColumnMappings.Add("Purchase Price", "Purchase Price");
@@ -3358,11 +3358,11 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Product` WHERE ((`ProductID` = ?) AND ((? = 1 AND `Product` IS NULL) OR (`Product` = ?)) AND ((? = 1 AND `Category` IS NULL) OR (`Category` = ?)) AND ((? = 1 AND `Quantity` IS NULL) OR (`Quantity` = ?)) AND ((? = 1 AND `Purchase Price` IS NULL) OR (`Purchase Price` = ?)) AND ((? = 1 AND `SalePrice` IS NULL) OR (`SalePrice` = ?)) AND ((? = 1 AND `InsertedBy` IS NULL) OR (`InsertedBy` = ?)) AND ((? = 1 AND `InsertionDate` IS NULL) OR (`InsertionDate` = ?)) AND ((? = 1 AND `Description` IS NULL) OR (`Description` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Product` WHERE ((`ProductID` = ?) AND ((? = 1 AND `ProductName` IS NULL) OR (`ProductName` = ?)) AND ((? = 1 AND `Category` IS NULL) OR (`Category` = ?)) AND ((? = 1 AND `Quantity` IS NULL) OR (`Quantity` = ?)) AND ((? = 1 AND `Purchase Price` IS NULL) OR (`Purchase Price` = ?)) AND ((? = 1 AND `SalePrice` IS NULL) OR (`SalePrice` = ?)) AND ((? = 1 AND `InsertedBy` IS NULL) OR (`InsertedBy` = ?)) AND ((? = 1 AND `InsertionDate` IS NULL) OR (`InsertionDate` = ?)) AND ((? = 1 AND `Description` IS NULL) OR (`Description` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProductID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Product", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Product", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Product", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Product", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ProductName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProductName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Category", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Category", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Category", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Category", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Quantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Quantity", global::System.Data.DataRowVersion.Original, true, null));
@@ -3379,11 +3379,11 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Description", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Description", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Product` (`Product`, `Category`, `Quantity`, `Purchase Price`, `Sale" +
-                "Price`, `InsertedBy`, `InsertionDate`, `Description`) VALUES (?, ?, ?, ?, ?, ?, " +
-                "?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Product` (`ProductName`, `Category`, `Quantity`, `Purchase Price`, `" +
+                "SalePrice`, `InsertedBy`, `InsertionDate`, `Description`) VALUES (?, ?, ?, ?, ?," +
+                " ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Product", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Product", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProductName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Category", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Category", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Quantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Quantity", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Purchase_Price", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Purchase Price", global::System.Data.DataRowVersion.Current, false, null));
@@ -3393,9 +3393,9 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Description", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Description", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Product` SET `Product` = ?, `Category` = ?, `Quantity` = ?, `Purchase Price` = ?, `SalePrice` = ?, `InsertedBy` = ?, `InsertionDate` = ?, `Description` = ? WHERE ((`ProductID` = ?) AND ((? = 1 AND `Product` IS NULL) OR (`Product` = ?)) AND ((? = 1 AND `Category` IS NULL) OR (`Category` = ?)) AND ((? = 1 AND `Quantity` IS NULL) OR (`Quantity` = ?)) AND ((? = 1 AND `Purchase Price` IS NULL) OR (`Purchase Price` = ?)) AND ((? = 1 AND `SalePrice` IS NULL) OR (`SalePrice` = ?)) AND ((? = 1 AND `InsertedBy` IS NULL) OR (`InsertedBy` = ?)) AND ((? = 1 AND `InsertionDate` IS NULL) OR (`InsertionDate` = ?)) AND ((? = 1 AND `Description` IS NULL) OR (`Description` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Product` SET `ProductName` = ?, `Category` = ?, `Quantity` = ?, `Purchase Price` = ?, `SalePrice` = ?, `InsertedBy` = ?, `InsertionDate` = ?, `Description` = ? WHERE ((`ProductID` = ?) AND ((? = 1 AND `ProductName` IS NULL) OR (`ProductName` = ?)) AND ((? = 1 AND `Category` IS NULL) OR (`Category` = ?)) AND ((? = 1 AND `Quantity` IS NULL) OR (`Quantity` = ?)) AND ((? = 1 AND `Purchase Price` IS NULL) OR (`Purchase Price` = ?)) AND ((? = 1 AND `SalePrice` IS NULL) OR (`SalePrice` = ?)) AND ((? = 1 AND `InsertedBy` IS NULL) OR (`InsertedBy` = ?)) AND ((? = 1 AND `InsertionDate` IS NULL) OR (`InsertionDate` = ?)) AND ((? = 1 AND `Description` IS NULL) OR (`Description` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Product", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Product", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProductName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Category", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Category", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Quantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Quantity", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Purchase_Price", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Purchase Price", global::System.Data.DataRowVersion.Current, false, null));
@@ -3404,8 +3404,8 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("InsertionDate", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InsertionDate", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Description", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Description", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProductID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Product", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Product", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Product", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Product", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ProductName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProductName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Category", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Category", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Category", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Category", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Quantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Quantity", global::System.Data.DataRowVersion.Original, true, null));
@@ -3435,8 +3435,8 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ProductID, Product, Category, Quantity, [Purchase Price], SalePrice, Inser" +
-                "tedBy, InsertionDate, Description FROM Product";
+            this._commandCollection[0].CommandText = "SELECT ProductID, ProductName, Category, Quantity, [Purchase Price], SalePrice, I" +
+                "nsertedBy, InsertionDate, Description FROM Product";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3497,15 +3497,15 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ProductID, string Original_Product, string Original_Category, global::System.Nullable<int> Original_Quantity, global::System.Nullable<decimal> Original_Purchase_Price, global::System.Nullable<decimal> Original_SalePrice, string Original_InsertedBy, global::System.Nullable<global::System.DateTime> Original_InsertionDate, string Original_Description) {
+        public virtual int Delete(int Original_ProductID, string Original_ProductName, string Original_Category, global::System.Nullable<int> Original_Quantity, global::System.Nullable<decimal> Original_Purchase_Price, global::System.Nullable<decimal> Original_SalePrice, string Original_InsertedBy, global::System.Nullable<global::System.DateTime> Original_InsertionDate, string Original_Description) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ProductID));
-            if ((Original_Product == null)) {
+            if ((Original_ProductName == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Product));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_ProductName));
             }
             if ((Original_Category == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
@@ -3583,12 +3583,12 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Product, string Category, global::System.Nullable<int> Quantity, global::System.Nullable<decimal> Purchase_Price, global::System.Nullable<decimal> SalePrice, string InsertedBy, global::System.Nullable<global::System.DateTime> InsertionDate, string Description) {
-            if ((Product == null)) {
+        public virtual int Insert(string ProductName, string Category, global::System.Nullable<int> Quantity, global::System.Nullable<decimal> Purchase_Price, global::System.Nullable<decimal> SalePrice, string InsertedBy, global::System.Nullable<global::System.DateTime> InsertionDate, string Description) {
+            if ((ProductName == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Product));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ProductName));
             }
             if ((Category == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -3653,7 +3653,7 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    string Product, 
+                    string ProductName, 
                     string Category, 
                     global::System.Nullable<int> Quantity, 
                     global::System.Nullable<decimal> Purchase_Price, 
@@ -3662,7 +3662,7 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
                     global::System.Nullable<global::System.DateTime> InsertionDate, 
                     string Description, 
                     int Original_ProductID, 
-                    string Original_Product, 
+                    string Original_ProductName, 
                     string Original_Category, 
                     global::System.Nullable<int> Original_Quantity, 
                     global::System.Nullable<decimal> Original_Purchase_Price, 
@@ -3670,11 +3670,11 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
                     string Original_InsertedBy, 
                     global::System.Nullable<global::System.DateTime> Original_InsertionDate, 
                     string Original_Description) {
-            if ((Product == null)) {
+            if ((ProductName == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Product));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ProductName));
             }
             if ((Category == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -3719,13 +3719,13 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Description));
             }
             this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ProductID));
-            if ((Original_Product == null)) {
+            if ((Original_ProductName == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Product));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_ProductName));
             }
             if ((Original_Category == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
