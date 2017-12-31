@@ -57,11 +57,11 @@ namespace COMP212_Midterm_SalePOS
             }
             else
             {
+                // connect to db, query username and pass, open connection, execute query into reader
+                OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=database1.mdb");
+                OleDbCommand cmd = new OleDbCommand("select * from Account where Username = '" + UsernameTextBox.Text + "' and Password = '" + PasswordTextBox.Text + "'", con);
                 try
                 {
-                    // connect to db, query username and pass, open connection, execute query into reader
-                    OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=database1.mdb");
-                    OleDbCommand cmd = new OleDbCommand("select * from Accounts where Username = '" + UsernameTextBox.Text + "' and Password = '" + PasswordTextBox.Text + "'", con);
                     con.Open();
                     OleDbDataReader rdr = cmd.ExecuteReader();
 
@@ -77,13 +77,15 @@ namespace COMP212_Midterm_SalePOS
                         FailedLoginAttempts++;
                         MessageBox.Show("Incorrect login credentials.", "Login Failed");
                     }
-
-                    con.Close();
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Something bad happened.", "Error");
                     throw;
+                }
+                finally
+                {
+                    con.Close();
                 }
             }
         }
