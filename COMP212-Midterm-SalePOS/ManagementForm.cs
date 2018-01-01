@@ -93,42 +93,14 @@ namespace COMP212_Midterm_SalePOS
 
         // METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-        ///// <summary>
-        ///// This method queries the database and returns the results in a datatable object.
-        ///// </summary>
-        //private DataTable QueryDatabase(string query)
-        //{
-        //    // connect to db
-        //    OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=database1.mdb");
-
-        //    // build query string
-        //    OleDbCommand cmd = new OleDbCommand(query, con);
-
-        //    // query
-        //    try
-        //    {
-        //        con.Open();
-        //        OleDbDataReader rdr = cmd.ExecuteReader();
-        //        DataTable dt = new DataTable();
-        //        dt.Load(rdr);
-        //        return dt;
-        //    }
-        //    catch (System.Exception)
-        //    {
-        //        MessageBox.Show("Something bad happened.", "Error");
-        //        throw;
-        //    }
-        //    finally
-        //    {
-        //        con.Close();
-        //    }
-        //}
-
         /// <summary>
         /// This method refreshes datasource reliant elements.
         /// </summary>
         private void RefreshForm()
         {
+            int idQueryResult;
+            DataTable categories;
+
             // clean search forms
             SearchProductIDTextBox.Text = "";
             SearchCategoryComboBox.SelectedIndex = -1;
@@ -142,34 +114,18 @@ namespace COMP212_Midterm_SalePOS
             UserTextBox.Text = Program.loginForm.UsernameTextBox.Text;
 
             // display ID
-            int idQueryResult = (Connection.QueryDatabase("select MAX(ProductID) from Product").Rows[0].Field<int>(0)) + 1;
+            idQueryResult = (Connection.QueryDatabase("select MAX(ProductID) from Product").Rows[0].Field<int>(0)) + 1;
             IDTextBox.Text = idQueryResult.ToString();
 
             // populate table
             ProductsDataGridView.DataSource = Connection.QueryDatabase("select * from Product");
 
-            // connect to db, query distinct categories
-            OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=database1.mdb");
-            OleDbCommand cmd = new OleDbCommand("select distinct Category from Product", con);
-            try
+            // query distinct categories and populate comboboxes
+            categories = Connection.QueryDatabase("select distinct Category from Product");
+            foreach (DataRow row in categories.Rows)
             {
-                con.Open();
-                OleDbDataReader rdr = cmd.ExecuteReader();
-                // populate combobox with categories
-                foreach (var row in rdr)
-                {
-                    CategoryComboBox.Items.Add(rdr.GetString(0));
-                    SearchCategoryComboBox.Items.Add(rdr.GetString(0));
-                }
-            }
-            catch (System.Exception)
-            {
-                MessageBox.Show("Something bad happened.", "Error");
-                throw;
-            }
-            finally
-            {
-                con.Close();
+                CategoryComboBox.Items.Add(row[0]);
+                SearchCategoryComboBox.Items.Add(row[0]);
             }
         }
 
