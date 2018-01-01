@@ -11,7 +11,7 @@ using System.Windows.Forms;
 /// Student#: 300869273
 /// Date Created: December 18, 2017
 /// Description: This app is a POS system for catering services.  It demonstrates database interactions via visual studio's wizard, ADO.NET, and LINQ.
-/// Version: 0.0.7 - Refactored QueryDatabase method.
+/// Version: 0.0.8 - ManagementForm.cs update.  Added functionality to ID text box.
 /// TODO updating database
 /// ==================================================================================================
 /// 

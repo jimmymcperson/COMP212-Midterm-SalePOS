@@ -137,6 +137,8 @@ namespace COMP212_Midterm_SalePOS
             UserTextBox.Text = Program.loginForm.UsernameTextBox.Text;
 
             // display ID
+            int idQueryResult = (QueryDatabase("select MAX(ProductID) from Product").Rows[0].Field<int>(0)) + 1;
+            IDTextBox.Text = idQueryResult.ToString();
 
             // populate table
             ProductsDataGridView.DataSource = QueryDatabase("select * from Product");
