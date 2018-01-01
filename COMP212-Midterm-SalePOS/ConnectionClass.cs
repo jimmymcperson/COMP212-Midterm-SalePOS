@@ -40,11 +40,11 @@ namespace COMP212_Midterm_SalePOS
         /// </summary>
         public void AddRow(int productID, string productName, string category, int quantity, int purchasePrice, int salePrice, string insertedBy, string description)
         {
-
+            DateTime currentDate = DateTime.Today;
             OleDbCommand cmd = new OleDbCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into Product (ProductID, ProductName, Category, Quantity, PurchasePrice, SalePrice, InsertedBy, Description)"
-            + " VALUES (@ProductID, @ProductName, @Category, @Quantity, @PurchasePrice, @SalePrice, @InsertedBy, @Description)";
+            cmd.CommandText = "insert into Product (ProductID, ProductName, Category, Quantity, PurchasePrice, SalePrice, InsertedBy, InsertionDate, Description)"
+            + " VALUES (@ProductID, @ProductName, @Category, @Quantity, @PurchasePrice, @SalePrice, @InsertedBy, @InsertionDate, @Description)";
             cmd.Parameters.AddWithValue("@ProductID", productID);
             cmd.Parameters.AddWithValue("@ProductName", productName);
             cmd.Parameters.AddWithValue("@Category", category);
@@ -52,6 +52,7 @@ namespace COMP212_Midterm_SalePOS
             cmd.Parameters.AddWithValue("@PurchasePrice", purchasePrice);
             cmd.Parameters.AddWithValue("@SalePrice", salePrice);
             cmd.Parameters.AddWithValue("@InsertedBy", insertedBy);
+            cmd.Parameters.AddWithValue("@InsertionDate", currentDate);
             cmd.Parameters.AddWithValue("@Description", description);
             cmd.Connection = con;
 
