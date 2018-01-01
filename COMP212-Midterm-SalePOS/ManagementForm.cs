@@ -10,13 +10,18 @@ namespace COMP212_Midterm_SalePOS
     /// </summary>
     public partial class ManagementForm : Form
     {
+        // PROPERTIES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        public ConnectionClass Connection { get; set; }
+
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
-        /// This is the default constructor.
+        /// This constructor initializes the connection and builds the form.
         /// </summary>
         public ManagementForm()
         {
+            Connection = new ConnectionClass();
             InitializeComponent();
         }
 
@@ -88,36 +93,36 @@ namespace COMP212_Midterm_SalePOS
 
         // METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-        /// <summary>
-        /// This method queries the database and returns the results in a datatable object.
-        /// </summary>
-        private DataTable QueryDatabase(string query)
-        {
-            // connect to db
-            OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=database1.mdb");
+        ///// <summary>
+        ///// This method queries the database and returns the results in a datatable object.
+        ///// </summary>
+        //private DataTable QueryDatabase(string query)
+        //{
+        //    // connect to db
+        //    OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=database1.mdb");
 
-            // build query string
-            OleDbCommand cmd = new OleDbCommand(query, con);
+        //    // build query string
+        //    OleDbCommand cmd = new OleDbCommand(query, con);
 
-            // query
-            try
-            {
-                con.Open();
-                OleDbDataReader rdr = cmd.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Load(rdr);
-                return dt;
-            }
-            catch (System.Exception)
-            {
-                MessageBox.Show("Something bad happened.", "Error");
-                throw;
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
+        //    // query
+        //    try
+        //    {
+        //        con.Open();
+        //        OleDbDataReader rdr = cmd.ExecuteReader();
+        //        DataTable dt = new DataTable();
+        //        dt.Load(rdr);
+        //        return dt;
+        //    }
+        //    catch (System.Exception)
+        //    {
+        //        MessageBox.Show("Something bad happened.", "Error");
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+        //}
 
         /// <summary>
         /// This method refreshes datasource reliant elements.
@@ -137,11 +142,11 @@ namespace COMP212_Midterm_SalePOS
             UserTextBox.Text = Program.loginForm.UsernameTextBox.Text;
 
             // display ID
-            int idQueryResult = (QueryDatabase("select MAX(ProductID) from Product").Rows[0].Field<int>(0)) + 1;
+            int idQueryResult = (Connection.QueryDatabase("select MAX(ProductID) from Product").Rows[0].Field<int>(0)) + 1;
             IDTextBox.Text = idQueryResult.ToString();
 
             // populate table
-            ProductsDataGridView.DataSource = QueryDatabase("select * from Product");
+            ProductsDataGridView.DataSource = Connection.QueryDatabase("select * from Product");
 
             // connect to db, query distinct categories
             OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=database1.mdb");
@@ -169,21 +174,21 @@ namespace COMP212_Midterm_SalePOS
         }
 
         /// <summary>
-        /// This method queries the database for entries that fit the search criteria.
+        /// This method queries the database for entries that fit the search criteria and displays it.
         /// </summary>
         private void SearchQuery(string SearchCriteria, int SearchCriteriaValue)
         {
             string searchQueryString = string.Format("select * from Product where {0} = {1}", SearchCriteria, SearchCriteriaValue);
-            ProductsDataGridView.DataSource = QueryDatabase(searchQueryString);
+            ProductsDataGridView.DataSource = Connection.QueryDatabase(searchQueryString);
         }
 
         /// <summary>
-        /// This method queries the database for entries that fit the search criteria.
+        /// This method queries the database for entries that fit the search criteria and displays it.
         /// </summary>
         private void SearchQuery(string SearchCriteria, string SearchCriteriaValue)
         {
             string searchQueryString = string.Format("select * from Product where {0} like '{1}%'", SearchCriteria, SearchCriteriaValue);
-            ProductsDataGridView.DataSource = QueryDatabase(searchQueryString);
+            ProductsDataGridView.DataSource = Connection.QueryDatabase(searchQueryString);
         }
     }
 }
