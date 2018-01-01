@@ -28,7 +28,30 @@ namespace COMP212_Midterm_SalePOS
         // EVENT HANDLERS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
-        /// This handler deletes selected rows from the data grid view.
+        /// This handler adds a product to the table.
+        /// </summary>
+        private void AddProductButton_Click(object sender, System.EventArgs e)
+        {
+            if (NoEmptyFields())
+            {
+                Connection.AddRow(int.Parse(IDTextBox.Text), ProductNameTextBox.Text, CategoryComboBox.SelectedItem.ToString(), int.Parse(QuantityTextBox.Text), int.Parse(PriceTextBox.Text), int.Parse(SalePriceTextBox.Text), UserTextBox.Text, DescriptionTextBox.Text);
+            }
+            else
+            {
+                MessageBox.Show("Please fill out all the fields.","Error");
+            }
+        }
+
+        /// <summary>
+        /// This handler commits an edit to the database.
+        /// </summary>
+        private void CommitChangesButton_Click(object sender, System.EventArgs e)
+        {
+            Connection.CommitChanges("select * from Product", (DataTable)ProductsDataGridView.DataSource);
+        }
+
+        /// <summary>
+        /// This handler deletes selected rows from the table.
         /// </summary>
         private void DeleteProductButton_Click(object sender, System.EventArgs e)
         {
@@ -39,14 +62,6 @@ namespace COMP212_Midterm_SalePOS
                     ProductsDataGridView.Rows.RemoveAt(row.Index);
                 }
             }
-        }
-
-        /// <summary>
-        /// This handler commits an edit to the database.
-        /// </summary>
-        private void CommitChangesButton_Click(object sender, System.EventArgs e)
-        {
-            Connection.CommitChanges("select * from Product", (DataTable)ProductsDataGridView.DataSource);
         }
 
         /// <summary>
@@ -115,6 +130,22 @@ namespace COMP212_Midterm_SalePOS
 
         // METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+        /// <summary>
+        /// This method checks that the required fields for row insertion are not empty.
+        /// </summary>
+        private bool NoEmptyFields()
+        {
+            bool result = true;
+            result &= CategoryComboBox.SelectedIndex != -1;
+            result &= !ProductNameTextBox.Text.Equals("");
+            result &= !QuantityTextBox.Text.Equals("");
+            result &= !PriceTextBox.Text.Equals("");
+            result &= !SalePriceTextBox.Text.Equals("");
+            result &= !IDTextBox.Text.Equals("");
+            result &= !DescriptionTextBox.Text.Equals("");
+            return result;
+        }
+        
         /// <summary>
         /// This method refreshes datasource reliant elements.
         /// </summary>

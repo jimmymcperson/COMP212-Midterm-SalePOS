@@ -36,6 +36,44 @@ namespace COMP212_Midterm_SalePOS
         // METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
+        /// This method adds a row to the database based on field inputs.
+        /// </summary>
+        public void AddRow(int productID, string productName, string category, int quantity, int purchasePrice, int salePrice, string insertedBy, string description)
+        {
+
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "insert into Product (ProductID, ProductName, Category, Quantity, PurchasePrice, SalePrice, InsertedBy, Description)"
+            + " VALUES (@ProductID, @ProductName, @Category, @Quantity, @PurchasePrice, @SalePrice, @InsertedBy, @Description)";
+            cmd.Parameters.AddWithValue("@ProductID", productID);
+            cmd.Parameters.AddWithValue("@ProductName", productName);
+            cmd.Parameters.AddWithValue("@Category", category);
+            cmd.Parameters.AddWithValue("@Quantity", quantity);
+            cmd.Parameters.AddWithValue("@PurchasePrice", purchasePrice);
+            cmd.Parameters.AddWithValue("@SalePrice", salePrice);
+            cmd.Parameters.AddWithValue("@InsertedBy", insertedBy);
+            cmd.Parameters.AddWithValue("@Description", description);
+            cmd.Connection = con;
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Entry added to the database.", "Success");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something bad happened.", "Error");
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        /// <summary>
         /// This method commits changes to the database.
         /// </summary>
         public void CommitChanges(string statement, DataTable dt)
