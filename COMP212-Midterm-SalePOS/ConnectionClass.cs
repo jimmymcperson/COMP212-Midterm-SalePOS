@@ -16,10 +16,12 @@ namespace COMP212_Midterm_SalePOS
     {
         // PROPERTIES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-        public OleDbConnection con { get; set;}
-        public OleDbCommand cmd { get; set; }
-        public OleDbDataReader rdr { get; set; }
         public DataTable dt { get; set; }
+        public OleDbCommand cmd { get; set; }
+        public OleDbCommandBuilder cb { get; set;}
+        public OleDbConnection con { get; set;}
+        public OleDbDataAdapter da { get; set; }
+        public OleDbDataReader rdr { get; set; }
         
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -29,10 +31,21 @@ namespace COMP212_Midterm_SalePOS
         public ConnectionClass()
         {
             con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=database1.mdb");
+            da = new OleDbDataAdapter("select * from product", con);
         }
 
         // METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         
+        /// <summary>
+        /// This method edits an entry in a database.
+        /// </summary>
+        public void EditEntry(string statement, DataTable dt)
+        {
+            da = new OleDbDataAdapter(statement, con);
+            cb = new OleDbCommandBuilder(da);
+            da.Update(dt);
+        }
+
         /// <summary>
         /// This method queries the database and returns the results in a datatable object.
         /// </summary>

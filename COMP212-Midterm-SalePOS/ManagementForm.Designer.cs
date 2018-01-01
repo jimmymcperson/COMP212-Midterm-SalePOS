@@ -66,9 +66,9 @@
             this.productTableAdapter = new COMP212_Midterm_SalePOS.Database1DataSetTableAdapters.ProductTableAdapter();
             this.SearchProductIDLabel = new System.Windows.Forms.Label();
             this.SearchProductIDTextBox = new System.Windows.Forms.TextBox();
-            this.NoteLabel = new System.Windows.Forms.Label();
             this.SearchByLabel = new System.Windows.Forms.Label();
             this.RefreshButton = new System.Windows.Forms.Button();
+            this.EditProductButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProductsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSetBindingSource)).BeginInit();
@@ -366,15 +366,6 @@
             this.SearchProductIDTextBox.TabIndex = 25;
             this.SearchProductIDTextBox.TextChanged += new System.EventHandler(this.SearchProductIDTextBox_TextChanged);
             // 
-            // NoteLabel
-            // 
-            this.NoteLabel.AutoSize = true;
-            this.NoteLabel.Location = new System.Drawing.Point(16, 531);
-            this.NoteLabel.Name = "NoteLabel";
-            this.NoteLabel.Size = new System.Drawing.Size(267, 13);
-            this.NoteLabel.TabIndex = 26;
-            this.NoteLabel.Text = "Note: double click product to update or delete the item.";
-            // 
             // SearchByLabel
             // 
             this.SearchByLabel.AutoSize = true;
@@ -394,14 +385,24 @@
             this.RefreshButton.UseVisualStyleBackColor = true;
             this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
+            // EditProductButton
+            // 
+            this.EditProductButton.Location = new System.Drawing.Point(323, 521);
+            this.EditProductButton.Name = "EditProductButton";
+            this.EditProductButton.Size = new System.Drawing.Size(75, 23);
+            this.EditProductButton.TabIndex = 29;
+            this.EditProductButton.Text = "Edit Product";
+            this.EditProductButton.UseVisualStyleBackColor = true;
+            this.EditProductButton.Click += new System.EventHandler(this.EditProductButton_Click);
+            // 
             // ManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 556);
+            this.Controls.Add(this.EditProductButton);
             this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.SearchByLabel);
-            this.Controls.Add(this.NoteLabel);
             this.Controls.Add(this.SearchProductIDTextBox);
             this.Controls.Add(this.SearchProductIDLabel);
             this.Controls.Add(this.ProductsDataGridView);
@@ -479,8 +480,8 @@
         private Database1DataSetTableAdapters.ProductTableAdapter productTableAdapter;
         private System.Windows.Forms.Label SearchProductIDLabel;
         private System.Windows.Forms.TextBox SearchProductIDTextBox;
-        private System.Windows.Forms.Label NoteLabel;
         private System.Windows.Forms.Label SearchByLabel;
         private System.Windows.Forms.Button RefreshButton;
+        private System.Windows.Forms.Button EditProductButton;
     }
 }

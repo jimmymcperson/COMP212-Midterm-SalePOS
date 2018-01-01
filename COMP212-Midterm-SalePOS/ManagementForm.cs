@@ -28,6 +28,15 @@ namespace COMP212_Midterm_SalePOS
         // EVENT HANDLERS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
+        /// This handler saves changes to the database.
+        /// </summary>
+        private void EditProductButton_Click(object sender, System.EventArgs e)
+        {
+            OleDbCommandBuilder test = new OleDbCommandBuilder(Connection.da);
+            Connection.da.Update((DataTable)ProductsDataGridView.DataSource);
+        }
+
+        /// <summary>
         /// This handler hides the form and shows the main menu when the form is "closed".
         /// </summary>
         private void ManagementForm_FormClosing(object sender, FormClosingEventArgs e)
