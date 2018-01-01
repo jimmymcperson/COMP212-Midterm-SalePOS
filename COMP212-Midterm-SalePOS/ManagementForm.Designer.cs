@@ -390,7 +390,7 @@
             this.RefreshButton.Name = "RefreshButton";
             this.RefreshButton.Size = new System.Drawing.Size(105, 23);
             this.RefreshButton.TabIndex = 28;
-            this.RefreshButton.Text = "Refresh";
+            this.RefreshButton.Text = "Refresh/Clear";
             this.RefreshButton.UseVisualStyleBackColor = true;
             this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 

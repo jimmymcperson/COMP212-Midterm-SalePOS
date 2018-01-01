@@ -25,7 +25,7 @@ namespace COMP212_Midterm_SalePOS
             InitializeComponent();
         }
 
-        // METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // EVENT HANDLERS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
         /// This handler closes the application when the form is closed.

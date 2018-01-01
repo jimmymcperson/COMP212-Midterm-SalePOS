@@ -31,7 +31,7 @@ namespace COMP212_Midterm_SalePOS
             InitializeComponent();
         }
 
-        // METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // EVENT HANDLERS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
         /// This handler disables lockout after 3 minutes.
