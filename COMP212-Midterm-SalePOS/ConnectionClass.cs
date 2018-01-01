@@ -26,24 +26,33 @@ namespace COMP212_Midterm_SalePOS
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
-        /// This constructor builds the connection string.
+        /// This constructor builds the connection string and dataadapter.
         /// </summary>
         public ConnectionClass()
         {
             con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=database1.mdb");
-            da = new OleDbDataAdapter("select * from product", con);
         }
 
         // METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        
+
         /// <summary>
-        /// This method edits an entry in a database.
+        /// This method commits changes to the database.
         /// </summary>
-        public void EditEntry(string statement, DataTable dt)
+        public void CommitChanges(string statement, DataTable dt)
         {
+            
             da = new OleDbDataAdapter(statement, con);
             cb = new OleDbCommandBuilder(da);
-            da.Update(dt);
+            try
+            {
+                da.Update(dt);
+                MessageBox.Show("Your changes have been committed to the database.","Success");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something bad happened.", "Error");
+                throw;
+            }
         }
 
         /// <summary>

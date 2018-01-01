@@ -28,12 +28,25 @@ namespace COMP212_Midterm_SalePOS
         // EVENT HANDLERS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
-        /// This handler saves changes to the database.
+        /// This handler deletes selected rows from the data grid view.
         /// </summary>
-        private void EditProductButton_Click(object sender, System.EventArgs e)
+        private void DeleteProductButton_Click(object sender, System.EventArgs e)
         {
-            OleDbCommandBuilder test = new OleDbCommandBuilder(Connection.da);
-            Connection.da.Update((DataTable)ProductsDataGridView.DataSource);
+            if (ProductsDataGridView.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in ProductsDataGridView.SelectedRows)
+                {
+                    ProductsDataGridView.Rows.RemoveAt(row.Index);
+                }
+            }
+        }
+
+        /// <summary>
+        /// This handler commits an edit to the database.
+        /// </summary>
+        private void CommitChangesButton_Click(object sender, System.EventArgs e)
+        {
+            Connection.CommitChanges("select * from Product", (DataTable)ProductsDataGridView.DataSource);
         }
 
         /// <summary>

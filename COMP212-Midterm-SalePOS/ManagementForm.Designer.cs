@@ -68,7 +68,8 @@
             this.SearchProductIDTextBox = new System.Windows.Forms.TextBox();
             this.SearchByLabel = new System.Windows.Forms.Label();
             this.RefreshButton = new System.Windows.Forms.Button();
-            this.EditProductButton = new System.Windows.Forms.Button();
+            this.CommitChangesButton = new System.Windows.Forms.Button();
+            this.DeleteProductButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProductsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSetBindingSource)).BeginInit();
@@ -231,7 +232,7 @@
             // 
             // AddProductButton
             // 
-            this.AddProductButton.Location = new System.Drawing.Point(323, 229);
+            this.AddProductButton.Location = new System.Drawing.Point(335, 229);
             this.AddProductButton.Name = "AddProductButton";
             this.AddProductButton.Size = new System.Drawing.Size(75, 23);
             this.AddProductButton.TabIndex = 18;
@@ -385,22 +386,33 @@
             this.RefreshButton.UseVisualStyleBackColor = true;
             this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
-            // EditProductButton
+            // CommitChangesButton
             // 
-            this.EditProductButton.Location = new System.Drawing.Point(323, 521);
-            this.EditProductButton.Name = "EditProductButton";
-            this.EditProductButton.Size = new System.Drawing.Size(75, 23);
-            this.EditProductButton.TabIndex = 29;
-            this.EditProductButton.Text = "Edit Product";
-            this.EditProductButton.UseVisualStyleBackColor = true;
-            this.EditProductButton.Click += new System.EventHandler(this.EditProductButton_Click);
+            this.CommitChangesButton.Location = new System.Drawing.Point(394, 521);
+            this.CommitChangesButton.Name = "CommitChangesButton";
+            this.CommitChangesButton.Size = new System.Drawing.Size(95, 23);
+            this.CommitChangesButton.TabIndex = 29;
+            this.CommitChangesButton.Text = "Commit Changes";
+            this.CommitChangesButton.UseVisualStyleBackColor = true;
+            this.CommitChangesButton.Click += new System.EventHandler(this.CommitChangesButton_Click);
+            // 
+            // DeleteProductButton
+            // 
+            this.DeleteProductButton.Location = new System.Drawing.Point(251, 521);
+            this.DeleteProductButton.Name = "DeleteProductButton";
+            this.DeleteProductButton.Size = new System.Drawing.Size(89, 23);
+            this.DeleteProductButton.TabIndex = 30;
+            this.DeleteProductButton.Text = "Delete Product";
+            this.DeleteProductButton.UseVisualStyleBackColor = true;
+            this.DeleteProductButton.Click += new System.EventHandler(this.DeleteProductButton_Click);
             // 
             // ManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 556);
-            this.Controls.Add(this.EditProductButton);
+            this.Controls.Add(this.DeleteProductButton);
+            this.Controls.Add(this.CommitChangesButton);
             this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.SearchByLabel);
             this.Controls.Add(this.SearchProductIDTextBox);
@@ -482,6 +494,7 @@
         private System.Windows.Forms.TextBox SearchProductIDTextBox;
         private System.Windows.Forms.Label SearchByLabel;
         private System.Windows.Forms.Button RefreshButton;
-        private System.Windows.Forms.Button EditProductButton;
+        private System.Windows.Forms.Button CommitChangesButton;
+        private System.Windows.Forms.Button DeleteProductButton;
     }
 }
