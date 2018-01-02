@@ -15,6 +15,10 @@ namespace COMP212_Midterm_SalePOS
     /// </summary>
     public partial class MainMenu : Form
     {
+        // PROPERTIES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        public string Username { get; set; }
+
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>

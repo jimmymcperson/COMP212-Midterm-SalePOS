@@ -69,7 +69,7 @@ namespace COMP212_Midterm_SalePOS
         /// </summary>
         private void ManagementForm_Activated(object sender, System.EventArgs e)
         {
-            RefreshForm();
+            //RefreshForm();
             Program.mainMenu.CurrentFormToolStripStatusLabel.Text = "Manage Product";
         }
 
@@ -83,6 +83,14 @@ namespace COMP212_Midterm_SalePOS
                 e.Cancel = true;
                 this.Hide();
             }
+        }
+
+        /// <summary>
+        /// This handler populates the form on load.
+        /// </summary>
+        private void ManagementForm_Load(object sender, System.EventArgs e)
+        {
+            RefreshForm();
         }
 
         /// <summary>
@@ -163,7 +171,7 @@ namespace COMP212_Midterm_SalePOS
             SearchCategoryComboBox.Items.Clear();
 
             // display user
-            UserTextBox.Text = Program.loginForm.UsernameTextBox.Text;
+            UserTextBox.Text = Program.mainMenu.Username;
 
             // display ID
             idQueryResult = (Connection.QueryDatabase("select MAX(ProductID) from Product").Rows[0].Field<int>(0)) + 1;
