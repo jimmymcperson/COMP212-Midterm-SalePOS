@@ -376,6 +376,7 @@
             this.Text = "Main Menu";
             this.Activated += new System.EventHandler(this.MainMenu_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenu_FormClosed);
+            this.Load += new System.EventHandler(this.MainMenu_Load);
             this.MainMenuMenuStrip.ResumeLayout(false);
             this.MainMenuMenuStrip.PerformLayout();
             this.MainStatusStrip.ResumeLayout(false);

@@ -76,6 +76,16 @@ namespace COMP212_Midterm_SalePOS
         }
 
         /// <summary>
+        /// This handler refreshes the menu on load.
+        /// </summary>
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+            RefreshMenu("select * from Product where Category = 'Food'", FoodFlowLayoutPanel);
+            RefreshMenu("select * from Product where Category = 'Drink'", DrinkFlowLayoutPanel);
+            RefreshMenu("select * from Product where Category = 'Movie'", MovieFlowLayoutPanel);
+        }
+
+        /// <summary>
         /// This handler opens the management form when the management button is clicked.
         /// </summary>
         private void ManagementToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,20 +98,44 @@ namespace COMP212_Midterm_SalePOS
         /// </summary>
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-            DataTable dt = Connection.QueryDatabase("select * from Product");
+            RefreshMenu("select * from Product where Category = 'Food'", FoodFlowLayoutPanel);
+            RefreshMenu("select * from Product where Category = 'Drink'", DrinkFlowLayoutPanel);
+            RefreshMenu("select * from Product where Category = 'Movie'", MovieFlowLayoutPanel);
+        }
+
+        // METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        /// <summary>
+        /// This method refreshes the product menus.
+        /// </summary>
+        private void RefreshMenu(string query, FlowLayoutPanel tab)
+        {
+            DataTable dt = Connection.QueryDatabase(query);
             foreach (DataRow row in dt.Rows)
             {
                 PictureBox pic = new PictureBox();
                 // memory stream will let Image object ready the byte array as a stream to construct image
                 MemoryStream ms;
+
+                // define picture box
                 pic.Name = string.Format(row[1].ToString() + "PictureBox");
                 pic.Size = new Size(100, 100);
                 pic.SizeMode = PictureBoxSizeMode.StretchImage;
-                // get picture binary data
+
+                // get picture binary data to define image property
                 byte[] imgBin = (byte[])row[9];
                 ms = new MemoryStream(imgBin);
                 pic.Image = Image.FromStream(ms);
-                FoodFlowLayoutPanel.Controls.Add(pic);
+
+                // create handler for image click event
+                void pic_Click(object sender, EventArgs e)
+                {
+                    DescriptionTextBox.Text = (string)row[8];
+                }
+                pic.Click += pic_Click;
+
+                // add picturebox to the menu
+                tab.Controls.Add(pic);
                 ms.Dispose();
             }
         }
