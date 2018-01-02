@@ -36,6 +36,14 @@ namespace COMP212_Midterm_SalePOS
         }
 
         /// <summary>
+        /// This handler opens the customer form.
+        /// </summary>
+        private void CustomersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.customerForm.Show();
+        }
+
+        /// <summary>
         /// This handler sends the user back to the login form.
         /// </summary>
         private void LogoutToolStripMenuItem_Click(object sender, EventArgs e)

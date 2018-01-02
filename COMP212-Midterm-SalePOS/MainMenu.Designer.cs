@@ -35,6 +35,7 @@
             this.SetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutDeveloperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.StoreNameToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.CurrentFormToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -50,7 +51,8 @@
             this.StatisticsToolStripMenuItem,
             this.SetupToolStripMenuItem,
             this.LogoutToolStripMenuItem,
-            this.AboutDeveloperToolStripMenuItem});
+            this.AboutDeveloperToolStripMenuItem,
+            this.CustomersToolStripMenuItem});
             this.MainMenuMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainMenuMenuStrip.Name = "MainMenuMenuStrip";
             this.MainMenuMenuStrip.Size = new System.Drawing.Size(690, 24);
@@ -95,6 +97,13 @@
             this.AboutDeveloperToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
             this.AboutDeveloperToolStripMenuItem.Text = "About Developer";
             this.AboutDeveloperToolStripMenuItem.Click += new System.EventHandler(this.AboutDeveloperToolStripMenuItem_Click);
+            // 
+            // CustomersToolStripMenuItem
+            // 
+            this.CustomersToolStripMenuItem.Name = "CustomersToolStripMenuItem";
+            this.CustomersToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.CustomersToolStripMenuItem.Text = "Customers";
+            this.CustomersToolStripMenuItem.Click += new System.EventHandler(this.CustomersToolStripMenuItem_Click);
             // 
             // MainStatusStrip
             // 
@@ -152,5 +161,6 @@
         private System.Windows.Forms.StatusStrip MainStatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel StoreNameToolStripStatusLabel;
         public System.Windows.Forms.ToolStripStatusLabel CurrentFormToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripMenuItem CustomersToolStripMenuItem;
     }
 }
