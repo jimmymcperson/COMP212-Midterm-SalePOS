@@ -39,7 +39,7 @@ namespace COMP212_Midterm_SalePOS
         {
             if (NoEmptyFields())
             {
-                Connection.AddRow(int.Parse(CustomerIDTextBox.Text), CompanyNameTextBox.Text, ContactNameTextBox.Text, ContactTitleTextBox.Text, AddressTextBox.Text, CityTextBox.Text, RegionTextBox.Text, PostalCodeTextBox.Text, CountryTextBox.Text, PhoneTextBox.Text);
+                Connection.AddRow(CustomerIDTextBox.Text, CompanyNameTextBox.Text, ContactNameTextBox.Text, ContactTitleTextBox.Text, AddressTextBox.Text, CityTextBox.Text, RegionTextBox.Text, PostalCodeTextBox.Text, CountryTextBox.Text, PhoneTextBox.Text);
             }
             else
             {
@@ -70,7 +70,14 @@ namespace COMP212_Midterm_SalePOS
         /// </summary>
         private void DeleteCustomerButton_Click(object sender, EventArgs e)
         {
-            Connection.DeleteRecord(CustomerIDTextBox.Text);
+            if (!CustomerIDTextBox.Text.Equals(""))
+            {
+                Connection.DeleteRecord(CustomerIDTextBox.Text);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a customerID", "Error");
+            }
         }
 
         /// <summary>
@@ -78,7 +85,15 @@ namespace COMP212_Midterm_SalePOS
         /// </summary>
         private void EditCustomerButton_Click(object sender, EventArgs e)
         {
-            //Connection.EditRecord;
+            if (!CustomerIDTextBox.Text.Equals(""))
+            {
+                Connection.EditRecord(CustomerIDTextBox.Text, CompanyNameTextBox.Text, CompanyNameTextBox.Text, ContactTitleTextBox.Text, AddressTextBox.Text, CityTextBox.Text, RegionTextBox.Text, PostalCodeTextBox.Text, CountryTextBox.Text, PhoneTextBox.Text);
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter a customerID", "Error");
+            }
         }
 
         // METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

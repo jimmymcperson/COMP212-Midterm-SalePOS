@@ -38,7 +38,7 @@ namespace COMP212_Midterm_SalePOS
         /// <summary>
         /// This method adds a row to the database based on field inputs.  Refactor into one method if have time.
         /// </summary>
-        public void AddRow(int productID, string productName, string category, int quantity, double purchasePrice, double salePrice, string insertedBy, string description)
+        public void AddRow(string productID, string productName, string category, string quantity, string purchasePrice, string salePrice, string insertedBy, string description)
         {
             DateTime currentDate = DateTime.Today;
             OleDbCommand cmd = new OleDbCommand();
@@ -55,12 +55,28 @@ namespace COMP212_Midterm_SalePOS
             cmd.Parameters.AddWithValue("@InsertionDate", currentDate);
             cmd.Parameters.AddWithValue("@Description", description);
             cmd.Connection = con;
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Entry added to the database.", "Success");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something bad happened.", "Error");
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         /// <summary>
         /// This method adds a row to the database based on field inputs. Refactor into one method if have time.
         /// </summary>
-        public void AddRow(int customerID, string companyName, string contactName, string contactTitle, string address, string city, string region, string postalCode, string country, string phone)
+        public void AddRow(string customerID, string companyName, string contactName, string contactTitle, string address, string city, string region, string postalCode, string country, string phone)
         {
             OleDbCommand cmd = new OleDbCommand();
             cmd.CommandType = CommandType.Text;
@@ -144,7 +160,7 @@ namespace COMP212_Midterm_SalePOS
         /// <summary>
         /// This method edits a record in the database.  Could probably refactor to one method.
         /// </summary>
-        public void EditRecord(int customerID, string companyName, string contactName, string contactTitle, string address, string city, string region, string postalCode, string country, string phone)
+        public void EditRecord(string customerID, string companyName, string contactName, string contactTitle, string address, string city, string region, string postalCode, string country, string phone)
         {
             OleDbCommand cmd = new OleDbCommand();
             cmd.CommandType = CommandType.Text;
@@ -164,7 +180,7 @@ namespace COMP212_Midterm_SalePOS
             {
                 con.Open();
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Entry added to the database.", "Success");
+                MessageBox.Show("Customer edited.", "Success");
             }
             catch (Exception)
             {

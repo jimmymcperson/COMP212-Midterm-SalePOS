@@ -34,7 +34,7 @@ namespace COMP212_Midterm_SalePOS
         {
             if (NoEmptyFields())
             {
-                Connection.AddRow(int.Parse(IDTextBox.Text), ProductNameTextBox.Text, CategoryComboBox.SelectedItem.ToString(), int.Parse(QuantityTextBox.Text), double.Parse(PriceTextBox.Text), double.Parse(SalePriceTextBox.Text), UserTextBox.Text, DescriptionTextBox.Text);
+                Connection.AddRow(IDTextBox.Text, ProductNameTextBox.Text, CategoryComboBox.SelectedItem.ToString(), QuantityTextBox.Text, PriceTextBox.Text, SalePriceTextBox.Text, UserTextBox.Text, DescriptionTextBox.Text);
             }
             else
             {
