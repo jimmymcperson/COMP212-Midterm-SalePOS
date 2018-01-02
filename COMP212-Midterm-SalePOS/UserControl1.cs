@@ -47,6 +47,40 @@ namespace COMP212_Midterm_SalePOS
             }
         }
 
+        /// <summary>
+        /// This handler clears as all the text in the form when the clear button is clicked.
+        /// </summary>
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            CustomerIDTextBox.Text = "";
+            CompanyNameTextBox.Text = "";
+            ContactNameTextBox.Text = "";
+            ContactTitleTextBox.Text = "";
+            AddressTextBox.Text = "";
+            CityTextBox.Text = "";
+            RegionTextBox.Text = "";
+            PostalCodeTextBox.Text = "";
+            CountryTextBox.Text = "";
+            PhoneTextBox.Text = "";
+
+        }
+
+        /// <summary>
+        /// This handler deletes a customer from the database.
+        /// </summary>
+        private void DeleteCustomerButton_Click(object sender, EventArgs e)
+        {
+            Connection.DeleteRecord(CustomerIDTextBox.Text);
+        }
+
+        /// <summary>
+        /// This handler edits customer info in the database.
+        /// </summary>
+        private void EditCustomerButton_Click(object sender, EventArgs e)
+        {
+            //Connection.EditRecord;
+        }
+
         // METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
@@ -66,24 +100,6 @@ namespace COMP212_Midterm_SalePOS
             result &= !CountryTextBox.Text.Equals("");
             result &= !PhoneTextBox.Text.Equals("");
             return result;
-        }
-
-        /// <summary>
-        /// This handler clears as all the text in the form.
-        /// </summary>
-        private void ClearButton_Click(object sender, EventArgs e)
-        {
-            CustomerIDTextBox.Text = "";
-            CompanyNameTextBox.Text = "";
-            ContactNameTextBox.Text = "";
-            ContactTitleTextBox.Text = "";
-            AddressTextBox.Text = "";
-            CityTextBox.Text = "";
-            RegionTextBox.Text = "";
-            PostalCodeTextBox.Text = "";
-            CountryTextBox.Text = "";
-            PhoneTextBox.Text = "";
-
         }
     }
 }

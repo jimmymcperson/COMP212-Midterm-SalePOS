@@ -95,23 +95,85 @@ namespace COMP212_Midterm_SalePOS
             }
         }
 
-            /// <summary>
-            /// This method commits changes to the database.
-            /// </summary>
-            public void CommitChanges(string statement, DataTable dt)
+        /// <summary>
+        /// This method commits changes to the database.
+        /// </summary>
+        public void CommitChanges(string statement, DataTable dt)
         {
-            
             da = new OleDbDataAdapter(statement, con);
             cb = new OleDbCommandBuilder(da);
             try
             {
                 da.Update(dt);
-                MessageBox.Show("Your changes have been committed to the database.","Success");
+                MessageBox.Show("Your changes have been committed to the database.", "Success");
             }
             catch (Exception)
             {
                 MessageBox.Show("Something bad happened.", "Error");
                 throw;
+            }
+        }
+
+        /// <summary>
+        /// This method deletes a customer from the database.
+        /// </summary>
+        public void DeleteRecord(string customerID)
+        {
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "delete from Customer where CustomerID = " + customerID;
+            cmd.Connection = con;
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Customer deleted", "Success");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something bad happened.", "Error");
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        /// <summary>
+        /// This method edits a record in the database.  Could probably refactor to one method.
+        /// </summary>
+        public void EditRecord(int customerID, string companyName, string contactName, string contactTitle, string address, string city, string region, string postalCode, string country, string phone)
+        {
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "update Customer set CompanyName = @CompanyName, ContactName = @ContactName, ContactTitle = @ContactTitle, Address = @Address, City = @City, Region = @Region, PostalCode = @PostalCode, Country = @Country, Phone = @Phone where CustomerID = " + customerID ;
+            cmd.Parameters.AddWithValue("@CompanyName", companyName);
+            cmd.Parameters.AddWithValue("@ContactName", contactName);
+            cmd.Parameters.AddWithValue("@ContactTitle", contactTitle);
+            cmd.Parameters.AddWithValue("@Address", address);
+            cmd.Parameters.AddWithValue("@City", city);
+            cmd.Parameters.AddWithValue("@Region", region);
+            cmd.Parameters.AddWithValue("@PostalCode", postalCode);
+            cmd.Parameters.AddWithValue("@Country", country);
+            cmd.Parameters.AddWithValue("@Phone", phone);
+            cmd.Connection = con;
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Entry added to the database.", "Success");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something bad happened.", "Error");
+                throw;
+            }
+            finally
+            {
+                con.Close();
             }
         }
 

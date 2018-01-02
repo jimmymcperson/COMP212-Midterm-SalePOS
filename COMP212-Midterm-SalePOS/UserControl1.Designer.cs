@@ -316,6 +316,7 @@
             this.EditCustomerButton.TabIndex = 1;
             this.EditCustomerButton.Text = "Edit Customer";
             this.EditCustomerButton.UseVisualStyleBackColor = true;
+            this.EditCustomerButton.Click += new System.EventHandler(this.EditCustomerButton_Click);
             // 
             // DeleteCustomerButton
             // 
@@ -325,6 +326,7 @@
             this.DeleteCustomerButton.TabIndex = 2;
             this.DeleteCustomerButton.Text = "Delete Customer";
             this.DeleteCustomerButton.UseVisualStyleBackColor = true;
+            this.DeleteCustomerButton.Click += new System.EventHandler(this.DeleteCustomerButton_Click);
             // 
             // ClearButton
             // 
