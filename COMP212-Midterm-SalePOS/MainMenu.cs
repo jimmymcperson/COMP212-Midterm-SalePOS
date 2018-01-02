@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace COMP212_Midterm_SalePOS
 {
@@ -17,6 +18,7 @@ namespace COMP212_Midterm_SalePOS
     {
         // PROPERTIES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+        public ConnectionClass Connection { get; set; }
         public string Username { get; set; }
 
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -26,6 +28,7 @@ namespace COMP212_Midterm_SalePOS
         /// </summary>
         public MainMenu()
         {
+            Connection = new ConnectionClass();
             InitializeComponent();
         }
 
@@ -78,6 +81,29 @@ namespace COMP212_Midterm_SalePOS
         private void ManagementToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.managementForm.Show();
+        }
+
+        /// <summary>
+        /// This handler refreshes the product menu.
+        /// </summary>
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            DataTable dt = Connection.QueryDatabase("select * from Product");
+            foreach (DataRow row in dt.Rows)
+            {
+                PictureBox pic = new PictureBox();
+                // memory stream will let Image object ready the byte array as a stream to construct image
+                MemoryStream ms;
+                pic.Name = string.Format(row[1].ToString() + "PictureBox");
+                pic.Size = new Size(100, 100);
+                pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                // get picture binary data
+                byte[] imgBin = (byte[])row[9];
+                ms = new MemoryStream(imgBin);
+                pic.Image = Image.FromStream(ms);
+                FoodFlowLayoutPanel.Controls.Add(pic);
+                ms.Dispose();
+            }
         }
     }
 }

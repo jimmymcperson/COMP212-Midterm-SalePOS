@@ -40,6 +40,7 @@
             this.StoreNameToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.CurrentFormToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.MainSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.DescriptionTextBox = new System.Windows.Forms.TextBox();
             this.AddProductButton = new System.Windows.Forms.Button();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.ProductTabControl = new System.Windows.Forms.TabControl();
@@ -47,6 +48,8 @@
             this.FoodFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.DrinkTabPage = new System.Windows.Forms.TabPage();
             this.DrinkFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.MovieTabPage = new System.Windows.Forms.TabPage();
+            this.MovieFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.BillNoTextBox = new System.Windows.Forms.TextBox();
             this.BillNoLabel = new System.Windows.Forms.Label();
             this.PurchaseButton = new System.Windows.Forms.Button();
@@ -55,9 +58,7 @@
             this.ClearButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.CartDataGridView = new System.Windows.Forms.DataGridView();
-            this.MovieTabPage = new System.Windows.Forms.TabPage();
-            this.DescriptionTextBox = new System.Windows.Forms.TextBox();
-            this.MovieFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.RefreshButton = new System.Windows.Forms.Button();
             this.MainMenuMenuStrip.SuspendLayout();
             this.MainStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).BeginInit();
@@ -67,8 +68,8 @@
             this.ProductTabControl.SuspendLayout();
             this.FoodTabPage.SuspendLayout();
             this.DrinkTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CartDataGridView)).BeginInit();
             this.MovieTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CartDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // MainMenuMenuStrip
@@ -164,6 +165,7 @@
             // 
             // MainSplitContainer.Panel1
             // 
+            this.MainSplitContainer.Panel1.Controls.Add(this.RefreshButton);
             this.MainSplitContainer.Panel1.Controls.Add(this.DescriptionTextBox);
             this.MainSplitContainer.Panel1.Controls.Add(this.AddProductButton);
             this.MainSplitContainer.Panel1.Controls.Add(this.SearchTextBox);
@@ -183,6 +185,15 @@
             this.MainSplitContainer.SplitterDistance = 521;
             this.MainSplitContainer.TabIndex = 2;
             // 
+            // DescriptionTextBox
+            // 
+            this.DescriptionTextBox.Location = new System.Drawing.Point(16, 468);
+            this.DescriptionTextBox.Multiline = true;
+            this.DescriptionTextBox.Name = "DescriptionTextBox";
+            this.DescriptionTextBox.ReadOnly = true;
+            this.DescriptionTextBox.Size = new System.Drawing.Size(229, 68);
+            this.DescriptionTextBox.TabIndex = 3;
+            // 
             // AddProductButton
             // 
             this.AddProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -197,7 +208,7 @@
             // 
             this.SearchTextBox.Location = new System.Drawing.Point(12, 14);
             this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(498, 20);
+            this.SearchTextBox.Size = new System.Drawing.Size(372, 20);
             this.SearchTextBox.TabIndex = 1;
             // 
             // ProductTabControl
@@ -236,7 +247,7 @@
             this.DrinkTabPage.Location = new System.Drawing.Point(4, 22);
             this.DrinkTabPage.Name = "DrinkTabPage";
             this.DrinkTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.DrinkTabPage.Size = new System.Drawing.Size(490, 417);
+            this.DrinkTabPage.Size = new System.Drawing.Size(490, 395);
             this.DrinkTabPage.TabIndex = 1;
             this.DrinkTabPage.Text = "Drink";
             this.DrinkTabPage.UseVisualStyleBackColor = true;
@@ -246,8 +257,27 @@
             this.DrinkFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DrinkFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.DrinkFlowLayoutPanel.Name = "DrinkFlowLayoutPanel";
-            this.DrinkFlowLayoutPanel.Size = new System.Drawing.Size(484, 411);
+            this.DrinkFlowLayoutPanel.Size = new System.Drawing.Size(484, 389);
             this.DrinkFlowLayoutPanel.TabIndex = 0;
+            // 
+            // MovieTabPage
+            // 
+            this.MovieTabPage.Controls.Add(this.MovieFlowLayoutPanel);
+            this.MovieTabPage.Location = new System.Drawing.Point(4, 22);
+            this.MovieTabPage.Name = "MovieTabPage";
+            this.MovieTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.MovieTabPage.Size = new System.Drawing.Size(490, 395);
+            this.MovieTabPage.TabIndex = 2;
+            this.MovieTabPage.Text = "Movie";
+            this.MovieTabPage.UseVisualStyleBackColor = true;
+            // 
+            // MovieFlowLayoutPanel
+            // 
+            this.MovieFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MovieFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.MovieFlowLayoutPanel.Name = "MovieFlowLayoutPanel";
+            this.MovieFlowLayoutPanel.Size = new System.Drawing.Size(484, 389);
+            this.MovieFlowLayoutPanel.TabIndex = 0;
             // 
             // BillNoTextBox
             // 
@@ -323,33 +353,15 @@
             this.CartDataGridView.Size = new System.Drawing.Size(274, 360);
             this.CartDataGridView.TabIndex = 0;
             // 
-            // MovieTabPage
+            // RefreshButton
             // 
-            this.MovieTabPage.Controls.Add(this.MovieFlowLayoutPanel);
-            this.MovieTabPage.Location = new System.Drawing.Point(4, 22);
-            this.MovieTabPage.Name = "MovieTabPage";
-            this.MovieTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.MovieTabPage.Size = new System.Drawing.Size(490, 395);
-            this.MovieTabPage.TabIndex = 2;
-            this.MovieTabPage.Text = "Movie";
-            this.MovieTabPage.UseVisualStyleBackColor = true;
-            // 
-            // DescriptionTextBox
-            // 
-            this.DescriptionTextBox.Location = new System.Drawing.Point(16, 468);
-            this.DescriptionTextBox.Multiline = true;
-            this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.ReadOnly = true;
-            this.DescriptionTextBox.Size = new System.Drawing.Size(229, 68);
-            this.DescriptionTextBox.TabIndex = 3;
-            // 
-            // MovieFlowLayoutPanel
-            // 
-            this.MovieFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MovieFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
-            this.MovieFlowLayoutPanel.Name = "MovieFlowLayoutPanel";
-            this.MovieFlowLayoutPanel.Size = new System.Drawing.Size(484, 389);
-            this.MovieFlowLayoutPanel.TabIndex = 0;
+            this.RefreshButton.Location = new System.Drawing.Point(391, 14);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(115, 20);
+            this.RefreshButton.TabIndex = 4;
+            this.RefreshButton.Text = "Refresh/Clear";
+            this.RefreshButton.UseVisualStyleBackColor = true;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // MainMenu
             // 
@@ -377,8 +389,8 @@
             this.ProductTabControl.ResumeLayout(false);
             this.FoodTabPage.ResumeLayout(false);
             this.DrinkTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.CartDataGridView)).EndInit();
             this.MovieTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CartDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,5 +428,6 @@
         private System.Windows.Forms.TextBox DescriptionTextBox;
         private System.Windows.Forms.TabPage MovieTabPage;
         private System.Windows.Forms.FlowLayoutPanel MovieFlowLayoutPanel;
+        private System.Windows.Forms.Button RefreshButton;
     }
 }
