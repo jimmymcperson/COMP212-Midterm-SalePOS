@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Data;
 using System.Windows.Forms;
+using System.IO;
+using System.Drawing;
 
 namespace COMP212_Midterm_SalePOS
 {
@@ -36,15 +38,31 @@ namespace COMP212_Midterm_SalePOS
         // METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
-        /// This method adds a row to the database based on field inputs.  Refactor into one method if have time.
+        /// This method adds a row to the database based on field inputs.
         /// </summary>
         public void AddRow(string productID, string productName, string category, string quantity, string purchasePrice, string salePrice, string insertedBy, string description)
         {
+            // declare variables
+            string picFileName = "";
+            byte[] pic;
             DateTime currentDate = DateTime.Today;
             OleDbCommand cmd = new OleDbCommand();
+
+            // get path to picture
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Select Picture";
+            ofd.Filter = "JPG Files|*.jpg";
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                picFileName = ofd.FileName;
+            }
+
+            // prepare picture for storing in db
+            pic = File.ReadAllBytes(picFileName);
+
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into Product (ProductID, ProductName, Category, Quantity, PurchasePrice, SalePrice, InsertedBy, InsertionDate, Description)"
-            + " VALUES (@ProductID, @ProductName, @Category, @Quantity, @PurchasePrice, @SalePrice, @InsertedBy, @InsertionDate, @Description)";
+            cmd.CommandText = "insert into Product (ProductID, ProductName, Category, Quantity, PurchasePrice, SalePrice, InsertedBy, InsertionDate, Description, [Image])"
+            + " VALUES (@ProductID, @ProductName, @Category, @Quantity, @PurchasePrice, @SalePrice, @InsertedBy, @InsertionDate, @Description, @Picture)";
             cmd.Parameters.AddWithValue("@ProductID", productID);
             cmd.Parameters.AddWithValue("@ProductName", productName);
             cmd.Parameters.AddWithValue("@Category", category);
@@ -54,7 +72,9 @@ namespace COMP212_Midterm_SalePOS
             cmd.Parameters.AddWithValue("@InsertedBy", insertedBy);
             cmd.Parameters.AddWithValue("@InsertionDate", currentDate);
             cmd.Parameters.AddWithValue("@Description", description);
+            cmd.Parameters.AddWithValue("@Picture", pic);
             cmd.Connection = con;
+
 
             try
             {
@@ -74,7 +94,7 @@ namespace COMP212_Midterm_SalePOS
         }
 
         /// <summary>
-        /// This method adds a row to the database based on field inputs. Refactor into one method if have time.
+        /// This method adds a row to the database based on field inputs.
         /// </summary>
         public void AddRow(string customerID, string companyName, string contactName, string contactTitle, string address, string city, string region, string postalCode, string country, string phone)
         {
@@ -158,7 +178,7 @@ namespace COMP212_Midterm_SalePOS
         }
 
         /// <summary>
-        /// This method edits a record in the database.  Could probably refactor to one method.
+        /// This method edits a record in the database.
         /// </summary>
         public void EditRecord(string customerID, string companyName, string contactName, string contactTitle, string address, string city, string region, string postalCode, string country, string phone)
         {

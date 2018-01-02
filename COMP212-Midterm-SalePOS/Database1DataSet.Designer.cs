@@ -1296,6 +1296,8 @@ namespace COMP212_Midterm_SalePOS {
             
             private global::System.Data.DataColumn columnPurchasePrice;
             
+            private global::System.Data.DataColumn columnImage;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ProductDataTable() {
@@ -1411,6 +1413,14 @@ namespace COMP212_Midterm_SalePOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ImageColumn {
+                get {
+                    return this.columnImage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1446,7 +1456,7 @@ namespace COMP212_Midterm_SalePOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ProductRow AddProductRow(string ProductName, string Category, int Quantity, decimal Purchase_Price, decimal SalePrice, string InsertedBy, System.DateTime InsertionDate, string Description, decimal PurchasePrice) {
+            public ProductRow AddProductRow(string ProductName, string Category, int Quantity, decimal Purchase_Price, decimal SalePrice, string InsertedBy, System.DateTime InsertionDate, string Description, decimal PurchasePrice, byte[] Image) {
                 ProductRow rowProductRow = ((ProductRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1458,7 +1468,8 @@ namespace COMP212_Midterm_SalePOS {
                         InsertedBy,
                         InsertionDate,
                         Description,
-                        PurchasePrice};
+                        PurchasePrice,
+                        Image};
                 rowProductRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProductRow);
                 return rowProductRow;
@@ -1498,6 +1509,7 @@ namespace COMP212_Midterm_SalePOS {
                 this.columnInsertionDate = base.Columns["InsertionDate"];
                 this.columnDescription = base.Columns["Description"];
                 this.columnPurchasePrice = base.Columns["PurchasePrice"];
+                this.columnImage = base.Columns["Image"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1523,6 +1535,8 @@ namespace COMP212_Midterm_SalePOS {
                 base.Columns.Add(this.columnDescription);
                 this.columnPurchasePrice = new global::System.Data.DataColumn("PurchasePrice", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPurchasePrice);
+                this.columnImage = new global::System.Data.DataColumn("Image", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImage);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnProductID}, true));
                 this.columnProductID.AutoIncrement = true;
@@ -2442,6 +2456,22 @@ namespace COMP212_Midterm_SalePOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public byte[] Image {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableProduct.ImageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Image\' in table \'Product\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProduct.ImageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsProductNameNull() {
                 return this.IsNull(this.tableProduct.ProductNameColumn);
             }
@@ -2546,6 +2576,18 @@ namespace COMP212_Midterm_SalePOS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetPurchasePriceNull() {
                 this[this.tableProduct.PurchasePriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsImageNull() {
+                return this.IsNull(this.tableProduct.ImageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetImageNull() {
+                this[this.tableProduct.ImageColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4137,6 +4179,7 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("InsertionDate", "InsertionDate");
             tableMapping.ColumnMappings.Add("Description", "Description");
             tableMapping.ColumnMappings.Add("PurchasePrice", "PurchasePrice");
+            tableMapping.ColumnMappings.Add("Image", "Image");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -4162,8 +4205,8 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `Product` (`ProductID`, `ProductName`, `Category`, `Quantity`, `Purch" +
-                "asePrice`, `SalePrice`, `InsertedBy`, `InsertionDate`, `Description`) VALUES (?," +
-                " ?, ?, ?, ?, ?, ?, ?, ?)";
+                "asePrice`, `SalePrice`, `InsertedBy`, `InsertionDate`, `Description`, `Image`) V" +
+                "ALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProductID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProductName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Current, false, null));
@@ -4174,9 +4217,10 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("InsertedBy", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InsertedBy", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("InsertionDate", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InsertionDate", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Description", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Description", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Image", global::System.Data.OleDb.OleDbType.LongVarBinary, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Image", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Product` SET `ProductID` = ?, `ProductName` = ?, `Category` = ?, `Quantity` = ?, `PurchasePrice` = ?, `SalePrice` = ?, `InsertedBy` = ?, `InsertionDate` = ?, `Description` = ? WHERE ((`ProductID` = ?) AND ((? = 1 AND `ProductName` IS NULL) OR (`ProductName` = ?)) AND ((? = 1 AND `Category` IS NULL) OR (`Category` = ?)) AND ((? = 1 AND `Quantity` IS NULL) OR (`Quantity` = ?)) AND ((? = 1 AND `PurchasePrice` IS NULL) OR (`PurchasePrice` = ?)) AND ((? = 1 AND `SalePrice` IS NULL) OR (`SalePrice` = ?)) AND ((? = 1 AND `InsertedBy` IS NULL) OR (`InsertedBy` = ?)) AND ((? = 1 AND `InsertionDate` IS NULL) OR (`InsertionDate` = ?)) AND ((? = 1 AND `Description` IS NULL) OR (`Description` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Product` SET `ProductID` = ?, `ProductName` = ?, `Category` = ?, `Quantity` = ?, `PurchasePrice` = ?, `SalePrice` = ?, `InsertedBy` = ?, `InsertionDate` = ?, `Description` = ?, `Image` = ? WHERE ((`ProductID` = ?) AND ((? = 1 AND `ProductName` IS NULL) OR (`ProductName` = ?)) AND ((? = 1 AND `Category` IS NULL) OR (`Category` = ?)) AND ((? = 1 AND `Quantity` IS NULL) OR (`Quantity` = ?)) AND ((? = 1 AND `PurchasePrice` IS NULL) OR (`PurchasePrice` = ?)) AND ((? = 1 AND `SalePrice` IS NULL) OR (`SalePrice` = ?)) AND ((? = 1 AND `InsertedBy` IS NULL) OR (`InsertedBy` = ?)) AND ((? = 1 AND `InsertionDate` IS NULL) OR (`InsertionDate` = ?)) AND ((? = 1 AND `Description` IS NULL) OR (`Description` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProductID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProductName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Current, false, null));
@@ -4187,6 +4231,7 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("InsertedBy", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InsertedBy", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("InsertionDate", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InsertionDate", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Description", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Description", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Image", global::System.Data.OleDb.OleDbType.LongVarBinary, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Image", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProductID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ProductName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProductName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Original, false, null));
@@ -4220,7 +4265,7 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        ProductID, ProductName, Category, Quantity, PurchasePrice, SalePric" +
-                "e, InsertedBy, InsertionDate, Description\r\nFROM            Product";
+                "e, InsertedBy, InsertionDate, Description, [Image]\r\nFROM            Product";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4367,7 +4412,7 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ProductID, string ProductName, string Category, global::System.Nullable<int> Quantity, global::System.Nullable<decimal> PurchasePrice, global::System.Nullable<decimal> SalePrice, string InsertedBy, global::System.Nullable<global::System.DateTime> InsertionDate, string Description) {
+        public virtual int Insert(int ProductID, string ProductName, string Category, global::System.Nullable<int> Quantity, global::System.Nullable<decimal> PurchasePrice, global::System.Nullable<decimal> SalePrice, string InsertedBy, global::System.Nullable<global::System.DateTime> InsertionDate, string Description, byte[] Image) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ProductID));
             if ((ProductName == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -4417,6 +4462,12 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Description));
             }
+            if ((Image == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((byte[])(Image));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4447,6 +4498,7 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
                     string InsertedBy, 
                     global::System.Nullable<global::System.DateTime> InsertionDate, 
                     string Description, 
+                    byte[] Image, 
                     int Original_ProductID, 
                     string Original_ProductName, 
                     string Original_Category, 
@@ -4505,70 +4557,76 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Description));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ProductID));
-            if ((Original_ProductName == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            if ((Image == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_ProductName));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((byte[])(Image));
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ProductID));
+            if ((Original_ProductName == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_ProductName));
             }
             if ((Original_Category == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Category));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Category));
             }
             if ((Original_Quantity.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_Quantity.Value));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_Quantity.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             if ((Original_PurchasePrice.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_PurchasePrice.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_PurchasePrice.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             if ((Original_SalePrice.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(Original_SalePrice.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(Original_SalePrice.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             if ((Original_InsertedBy == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_InsertedBy));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_InsertedBy));
             }
             if ((Original_InsertionDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_InsertionDate.Value));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_InsertionDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             if ((Original_Description == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Description));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_Description));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4599,6 +4657,7 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
                     string InsertedBy, 
                     global::System.Nullable<global::System.DateTime> InsertionDate, 
                     string Description, 
+                    byte[] Image, 
                     int Original_ProductID, 
                     string Original_ProductName, 
                     string Original_Category, 
@@ -4608,7 +4667,7 @@ namespace COMP212_Midterm_SalePOS.Database1DataSetTableAdapters {
                     string Original_InsertedBy, 
                     global::System.Nullable<global::System.DateTime> Original_InsertionDate, 
                     string Original_Description) {
-            return this.Update(Original_ProductID, ProductName, Category, Quantity, PurchasePrice, SalePrice, InsertedBy, InsertionDate, Description, Original_ProductID, Original_ProductName, Original_Category, Original_Quantity, Original_PurchasePrice, Original_SalePrice, Original_InsertedBy, Original_InsertionDate, Original_Description);
+            return this.Update(Original_ProductID, ProductName, Category, Quantity, PurchasePrice, SalePrice, InsertedBy, InsertionDate, Description, Image, Original_ProductID, Original_ProductName, Original_Category, Original_Quantity, Original_PurchasePrice, Original_SalePrice, Original_InsertedBy, Original_InsertionDate, Original_Description);
         }
     }
     
