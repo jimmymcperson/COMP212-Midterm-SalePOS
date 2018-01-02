@@ -28,9 +28,18 @@ namespace COMP212_Midterm_SalePOS
         // EVENT HANDLERS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
+        /// This handler opens the about box.
+        /// </summary>
+        private void AboutDeveloperToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.aboutBox.Show();
+        }
+
+        /// <summary>
         /// This handler sends the user back to the login form.
         /// </summary>
-        private void LogOutToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void LogoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
             Program.loginForm.Show();

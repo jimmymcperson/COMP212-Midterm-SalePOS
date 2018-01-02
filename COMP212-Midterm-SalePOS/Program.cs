@@ -11,7 +11,7 @@ using System.Windows.Forms;
 /// Student#: 300869273
 /// Date Created: December 18, 2017
 /// Description: This app is a POS system for catering services.  It demonstrates database interactions via visual studio's wizard, ADO.NET, and LINQ.
-/// Version: 0.1.3 - Bugfixes for ManagementForm.  Added Logout feature for MainForm.
+/// Version: 0.1.4 - Added About box.  Cleaned up some code.
 /// TODO main form
 /// ==================================================================================================
 /// 
@@ -24,6 +24,7 @@ namespace COMP212_Midterm_SalePOS
     static class Program
     {
         // Declaring form variables to initialize in main method
+        public static AboutBox aboutBox;
         public static LoginForm loginForm;
         public static MainMenu mainMenu;
         public static ManagementForm managementForm;
@@ -39,6 +40,7 @@ namespace COMP212_Midterm_SalePOS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            aboutBox = new AboutBox();
             loginForm = new LoginForm();
             mainMenu = new MainMenu();
             managementForm = new ManagementForm();
