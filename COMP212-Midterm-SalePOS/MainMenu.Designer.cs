@@ -308,11 +308,11 @@
             // TotalPriceLabel
             // 
             this.TotalPriceLabel.AutoSize = true;
-            this.TotalPriceLabel.Location = new System.Drawing.Point(85, 443);
+            this.TotalPriceLabel.Location = new System.Drawing.Point(66, 443);
             this.TotalPriceLabel.Name = "TotalPriceLabel";
-            this.TotalPriceLabel.Size = new System.Drawing.Size(61, 13);
+            this.TotalPriceLabel.Size = new System.Drawing.Size(79, 13);
             this.TotalPriceLabel.TabIndex = 4;
-            this.TotalPriceLabel.Text = "Total Price:";
+            this.TotalPriceLabel.Text = "Total Price ($) :";
             // 
             // TotalPriceTextBox
             // 
@@ -358,6 +358,7 @@
             this.CartDataGridView.Name = "CartDataGridView";
             this.CartDataGridView.Size = new System.Drawing.Size(274, 360);
             this.CartDataGridView.TabIndex = 0;
+            this.CartDataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.CartDataGridView_RowsAdded);
             // 
             // RefreshButton
             // 

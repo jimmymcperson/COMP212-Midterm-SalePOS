@@ -56,6 +56,19 @@ namespace COMP212_Midterm_SalePOS
         }
 
         /// <summary>
+        /// This handler updates the total price when items are added to the cart.
+        /// </summary>
+        private void CartDataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            double total = 0;
+            for (int i = 0; i < CartDataGridView.Rows.Count; i++)
+            {
+                total += Convert.ToDouble(CartDataGridView.Rows[i].Cells["Price"].Value);
+            }
+            TotalPriceTextBox.Text = total.ToString();
+        }
+
+        /// <summary>
         /// This handler clears all items from the cart.
         /// </summary>
         private void ClearButton_Click(object sender, EventArgs e)

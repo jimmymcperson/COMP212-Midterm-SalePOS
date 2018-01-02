@@ -11,7 +11,7 @@ using System.Windows.Forms;
 /// Student#: 300869273
 /// Date Created: December 18, 2017
 /// Description: This app is a POS system for catering services.  It demonstrates database interactions via visual studio's wizard, ADO.NET, and LINQ.
-/// Version: 0.2.5 - Main menu update. Added functionality to BillNO generator, remove, and clear button.
+/// Version: 0.2.6 - Main menu update. Added functionality to total price box.
 /// TODO main menu
 /// ==================================================================================================
 /// 
