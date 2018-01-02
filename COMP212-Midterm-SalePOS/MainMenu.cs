@@ -28,6 +28,15 @@ namespace COMP212_Midterm_SalePOS
         // EVENT HANDLERS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
+        /// This handler sends the user back to the login form.
+        /// </summary>
+        private void LogOutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Program.loginForm.Show();
+        }
+
+        /// <summary>
         /// This handler closes the application when the form is closed.
         /// </summary>
         private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)

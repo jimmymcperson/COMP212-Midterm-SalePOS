@@ -28,6 +28,14 @@ namespace COMP212_Midterm_SalePOS
         // EVENT HANDLERS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
+        /// This handler updates form values when form is opened.
+        /// </summary>
+        private void ManagementForm_Activated(object sender, System.EventArgs e)
+        {
+            RefreshForm();
+        }
+
+        /// <summary>
         /// This handler adds a product to the table.
         /// </summary>
         private void AddProductButton_Click(object sender, System.EventArgs e)
@@ -76,15 +84,6 @@ namespace COMP212_Midterm_SalePOS
                 Program.mainMenu.Show();
             }
         }
-
-        /// <summary>
-        /// This handler updates form values when form is opened.
-        /// </summary>
-        private void ManagementForm_Shown(object sender, System.EventArgs e)
-        {
-            RefreshForm();
-        }
-        
 
         /// <summary>
         /// This handler refreshes the form.

@@ -38,6 +38,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StoreNameToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.CurrentFormToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LogOutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenuMenuStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +85,8 @@
             // 
             // logoutToolStripMenuItem
             // 
+            this.logoutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LogOutToolStripMenuItem1});
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.logoutToolStripMenuItem.Text = "Logout";
@@ -117,6 +120,13 @@
             this.CurrentFormToolStripStatusLabel.Size = new System.Drawing.Size(68, 17);
             this.CurrentFormToolStripStatusLabel.Text = "Main Menu";
             // 
+            // LogOutToolStripMenuItem1
+            // 
+            this.LogOutToolStripMenuItem1.Name = "LogOutToolStripMenuItem1";
+            this.LogOutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.LogOutToolStripMenuItem1.Text = "Log Out";
+            this.LogOutToolStripMenuItem1.Click += new System.EventHandler(this.LogOutToolStripMenuItem1_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,5 +159,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel StoreNameToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel CurrentFormToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripMenuItem LogOutToolStripMenuItem1;
     }
 }
