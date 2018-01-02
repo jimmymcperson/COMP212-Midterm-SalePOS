@@ -19,6 +19,7 @@ namespace COMP212_Midterm_SalePOS
 
         // PROPERTIES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+        public ConnectionClass Connection { get; set; }
         public int FailedLoginAttempts { get; set; }
 
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -28,6 +29,8 @@ namespace COMP212_Midterm_SalePOS
         /// </summary>
         public LoginForm()
         {
+            Connection = new ConnectionClass();
+            FailedLoginAttempts = 0;
             InitializeComponent();
         }
 
@@ -57,45 +60,18 @@ namespace COMP212_Midterm_SalePOS
             }
             else
             {
-                // connect to db, query username and pass, open connection, execute query into reader
-                OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=database1.mdb");
-                OleDbCommand cmd = new OleDbCommand("select * from Account where Username = '" + UsernameTextBox.Text + "' and Password = '" + PasswordTextBox.Text + "'", con);
-                try
+                if (Connection.QueryDatabase("select * from Account where Username = '" + UsernameTextBox.Text + "' and Password = '" + PasswordTextBox.Text + "'").Rows.Count > 0)
                 {
-                    con.Open();
-                    OleDbDataReader rdr = cmd.ExecuteReader();
-
-                    // if username and password match, continue program
-                    if (rdr.HasRows)
-                    {
-                        FailedLoginAttempts = 0;
-                        this.Hide();
-                        Program.mainMenu.Show();
-                    }
-                    else
-                    {
-                        FailedLoginAttempts++;
-                        MessageBox.Show("Incorrect login credentials.", "Login Failed");
-                    }
+                    FailedLoginAttempts = 0;
+                    this.Hide();
+                    Program.mainMenu.Show();
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("Something bad happened.", "Error");
-                    throw;
-                }
-                finally
-                {
-                    con.Close();
+                    FailedLoginAttempts++;
+                    MessageBox.Show("Incorrect login credentials.", "Login Failed");
                 }
             }
-        }
-
-        /// <summary>
-        /// This handler initializes properties on load.
-        /// </summary>
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-            FailedLoginAttempts = 0;
         }
 
         /// <summary>
