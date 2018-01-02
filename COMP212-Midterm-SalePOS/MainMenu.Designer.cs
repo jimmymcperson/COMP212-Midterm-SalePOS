@@ -42,7 +42,6 @@
             this.MainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
             this.AddProductButton = new System.Windows.Forms.Button();
-            this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.ProductTabControl = new System.Windows.Forms.TabControl();
             this.FoodTabPage = new System.Windows.Forms.TabPage();
             this.FoodFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -59,6 +58,11 @@
             this.RemoveButton = new System.Windows.Forms.Button();
             this.CartDataGridView = new System.Windows.Forms.DataGridView();
             this.RefreshButton = new System.Windows.Forms.Button();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.MainMenuMenuStrip.SuspendLayout();
             this.MainStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).BeginInit();
@@ -182,7 +186,7 @@
             this.MainSplitContainer.Panel2.Controls.Add(this.RemoveButton);
             this.MainSplitContainer.Panel2.Controls.Add(this.CartDataGridView);
             this.MainSplitContainer.Size = new System.Drawing.Size(814, 544);
-            this.MainSplitContainer.SplitterDistance = 521;
+            this.MainSplitContainer.SplitterDistance = 522;
             this.MainSplitContainer.TabIndex = 2;
             // 
             // DescriptionTextBox
@@ -203,13 +207,7 @@
             this.AddProductButton.TabIndex = 2;
             this.AddProductButton.Text = "ADD PRODUCT";
             this.AddProductButton.UseVisualStyleBackColor = true;
-            // 
-            // SearchTextBox
-            // 
-            this.SearchTextBox.Location = new System.Drawing.Point(12, 14);
-            this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(372, 20);
-            this.SearchTextBox.TabIndex = 1;
+            this.AddProductButton.Click += new System.EventHandler(this.AddProductButton_Click);
             // 
             // ProductTabControl
             // 
@@ -348,8 +346,14 @@
             // CartDataGridView
             // 
             this.CartDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CartDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProductID,
+            this.ProductName,
+            this.Quantity,
+            this.Price});
             this.CartDataGridView.Location = new System.Drawing.Point(3, 65);
             this.CartDataGridView.Name = "CartDataGridView";
+            this.CartDataGridView.RowHeadersVisible = false;
             this.CartDataGridView.Size = new System.Drawing.Size(274, 360);
             this.CartDataGridView.TabIndex = 0;
             // 
@@ -359,9 +363,42 @@
             this.RefreshButton.Name = "RefreshButton";
             this.RefreshButton.Size = new System.Drawing.Size(115, 20);
             this.RefreshButton.TabIndex = 4;
-            this.RefreshButton.Text = "Refresh/Clear";
+            this.RefreshButton.Text = "Refresh Menu";
             this.RefreshButton.UseVisualStyleBackColor = true;
             this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
+            // 
+            // ProductID
+            // 
+            this.ProductID.HeaderText = "ID";
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            this.ProductID.Width = 30;
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "ProductName";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // SearchTextBox
+            // 
+            this.SearchTextBox.Location = new System.Drawing.Point(12, 14);
+            this.SearchTextBox.Name = "SearchTextBox";
+            this.SearchTextBox.Size = new System.Drawing.Size(372, 20);
+            this.SearchTextBox.TabIndex = 1;
+            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // MainMenu
             // 
@@ -411,7 +448,6 @@
         public System.Windows.Forms.ToolStripStatusLabel CurrentFormToolStripStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem CustomersToolStripMenuItem;
         private System.Windows.Forms.SplitContainer MainSplitContainer;
-        private System.Windows.Forms.TextBox SearchTextBox;
         private System.Windows.Forms.TabControl ProductTabControl;
         private System.Windows.Forms.TabPage FoodTabPage;
         private System.Windows.Forms.FlowLayoutPanel FoodFlowLayoutPanel;
@@ -430,5 +466,10 @@
         private System.Windows.Forms.TabPage MovieTabPage;
         private System.Windows.Forms.FlowLayoutPanel MovieFlowLayoutPanel;
         private System.Windows.Forms.Button RefreshButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.TextBox SearchTextBox;
     }
 }

@@ -19,6 +19,7 @@ namespace COMP212_Midterm_SalePOS
         // PROPERTIES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         public ConnectionClass Connection { get; set; }
+        public DataRow CurrentRow { get; set; }
         public string Username { get; set; }
 
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -29,6 +30,7 @@ namespace COMP212_Midterm_SalePOS
         public MainMenu()
         {
             Connection = new ConnectionClass();
+            CurrentRow = null;
             InitializeComponent();
         }
 
@@ -40,6 +42,17 @@ namespace COMP212_Midterm_SalePOS
         private void AboutDeveloperToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.aboutBox.Show();
+        }
+
+        /// <summary>
+        /// This handler adds the product to the cart.
+        /// </summary>
+        private void AddProductButton_Click(object sender, EventArgs e)
+        {
+            if (CurrentRow != null)
+            {
+                CartDataGridView.Rows.Add(CurrentRow[0], CurrentRow[1], 1, CurrentRow[4]);
+            }
         }
 
         /// <summary>
@@ -98,6 +111,9 @@ namespace COMP212_Midterm_SalePOS
         /// </summary>
         private void RefreshButton_Click(object sender, EventArgs e)
         {
+            FoodFlowLayoutPanel.Controls.Clear();
+            DrinkFlowLayoutPanel.Controls.Clear();
+            MovieFlowLayoutPanel.Controls.Clear();
             RefreshMenu("select * from Product where Category = 'Food'", FoodFlowLayoutPanel);
             RefreshMenu("select * from Product where Category = 'Drink'", DrinkFlowLayoutPanel);
             RefreshMenu("select * from Product where Category = 'Movie'", MovieFlowLayoutPanel);
@@ -130,6 +146,7 @@ namespace COMP212_Midterm_SalePOS
                 // create handler for image click event
                 void pic_Click(object sender, EventArgs e)
                 {
+                    CurrentRow = row;
                     DescriptionTextBox.Text = (string)row[8];
                 }
                 pic.Click += pic_Click;
@@ -138,6 +155,16 @@ namespace COMP212_Midterm_SalePOS
                 tab.Controls.Add(pic);
                 ms.Dispose();
             }
+        }
+
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            FoodFlowLayoutPanel.Controls.Clear();
+            DrinkFlowLayoutPanel.Controls.Clear();
+            MovieFlowLayoutPanel.Controls.Clear();
+            RefreshMenu(string.Format("select * from Product where Category = 'Food' and ProductName like '{0}%'", SearchTextBox.Text), FoodFlowLayoutPanel);
+            RefreshMenu(string.Format("select * from Product where Category = 'Drink' and ProductName like '{0}%'", SearchTextBox.Text), FoodFlowLayoutPanel);
+            RefreshMenu(string.Format("select * from Product where Category = 'Movie' and ProductName like '{0}%'", SearchTextBox.Text), FoodFlowLayoutPanel);
         }
     }
 }
