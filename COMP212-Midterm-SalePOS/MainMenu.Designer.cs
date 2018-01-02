@@ -40,21 +40,24 @@
             this.StoreNameToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.CurrentFormToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.MainSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.AddProductButton = new System.Windows.Forms.Button();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.ProductTabControl = new System.Windows.Forms.TabControl();
             this.FoodTabPage = new System.Windows.Forms.TabPage();
             this.FoodFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.DrinkTabPage = new System.Windows.Forms.TabPage();
             this.DrinkFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.CartDataGridView = new System.Windows.Forms.DataGridView();
-            this.AddProductButton = new System.Windows.Forms.Button();
-            this.RemoveButton = new System.Windows.Forms.Button();
-            this.ClearButton = new System.Windows.Forms.Button();
-            this.TotalPriceTextBox = new System.Windows.Forms.TextBox();
-            this.TotalPriceLabel = new System.Windows.Forms.Label();
-            this.PurchaseButton = new System.Windows.Forms.Button();
-            this.BillNoLabel = new System.Windows.Forms.Label();
             this.BillNoTextBox = new System.Windows.Forms.TextBox();
+            this.BillNoLabel = new System.Windows.Forms.Label();
+            this.PurchaseButton = new System.Windows.Forms.Button();
+            this.TotalPriceLabel = new System.Windows.Forms.Label();
+            this.TotalPriceTextBox = new System.Windows.Forms.TextBox();
+            this.ClearButton = new System.Windows.Forms.Button();
+            this.RemoveButton = new System.Windows.Forms.Button();
+            this.CartDataGridView = new System.Windows.Forms.DataGridView();
+            this.MovieTabPage = new System.Windows.Forms.TabPage();
+            this.DescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.MovieFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.MainMenuMenuStrip.SuspendLayout();
             this.MainStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).BeginInit();
@@ -65,6 +68,7 @@
             this.FoodTabPage.SuspendLayout();
             this.DrinkTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CartDataGridView)).BeginInit();
+            this.MovieTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainMenuMenuStrip
@@ -160,6 +164,7 @@
             // 
             // MainSplitContainer.Panel1
             // 
+            this.MainSplitContainer.Panel1.Controls.Add(this.DescriptionTextBox);
             this.MainSplitContainer.Panel1.Controls.Add(this.AddProductButton);
             this.MainSplitContainer.Panel1.Controls.Add(this.SearchTextBox);
             this.MainSplitContainer.Panel1.Controls.Add(this.ProductTabControl);
@@ -178,6 +183,16 @@
             this.MainSplitContainer.SplitterDistance = 521;
             this.MainSplitContainer.TabIndex = 2;
             // 
+            // AddProductButton
+            // 
+            this.AddProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddProductButton.Location = new System.Drawing.Point(264, 485);
+            this.AddProductButton.Name = "AddProductButton";
+            this.AddProductButton.Size = new System.Drawing.Size(242, 51);
+            this.AddProductButton.TabIndex = 2;
+            this.AddProductButton.Text = "ADD PRODUCT";
+            this.AddProductButton.UseVisualStyleBackColor = true;
+            // 
             // SearchTextBox
             // 
             this.SearchTextBox.Location = new System.Drawing.Point(12, 14);
@@ -189,10 +204,11 @@
             // 
             this.ProductTabControl.Controls.Add(this.FoodTabPage);
             this.ProductTabControl.Controls.Add(this.DrinkTabPage);
+            this.ProductTabControl.Controls.Add(this.MovieTabPage);
             this.ProductTabControl.Location = new System.Drawing.Point(12, 40);
             this.ProductTabControl.Name = "ProductTabControl";
             this.ProductTabControl.SelectedIndex = 0;
-            this.ProductTabControl.Size = new System.Drawing.Size(498, 443);
+            this.ProductTabControl.Size = new System.Drawing.Size(498, 421);
             this.ProductTabControl.TabIndex = 0;
             // 
             // FoodTabPage
@@ -201,7 +217,7 @@
             this.FoodTabPage.Location = new System.Drawing.Point(4, 22);
             this.FoodTabPage.Name = "FoodTabPage";
             this.FoodTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.FoodTabPage.Size = new System.Drawing.Size(490, 417);
+            this.FoodTabPage.Size = new System.Drawing.Size(490, 395);
             this.FoodTabPage.TabIndex = 0;
             this.FoodTabPage.Text = "Food";
             this.FoodTabPage.UseVisualStyleBackColor = true;
@@ -211,7 +227,7 @@
             this.FoodFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FoodFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.FoodFlowLayoutPanel.Name = "FoodFlowLayoutPanel";
-            this.FoodFlowLayoutPanel.Size = new System.Drawing.Size(484, 411);
+            this.FoodFlowLayoutPanel.Size = new System.Drawing.Size(484, 389);
             this.FoodFlowLayoutPanel.TabIndex = 0;
             // 
             // DrinkTabPage
@@ -220,7 +236,7 @@
             this.DrinkTabPage.Location = new System.Drawing.Point(4, 22);
             this.DrinkTabPage.Name = "DrinkTabPage";
             this.DrinkTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.DrinkTabPage.Size = new System.Drawing.Size(498, 475);
+            this.DrinkTabPage.Size = new System.Drawing.Size(490, 417);
             this.DrinkTabPage.TabIndex = 1;
             this.DrinkTabPage.Text = "Drink";
             this.DrinkTabPage.UseVisualStyleBackColor = true;
@@ -230,44 +246,45 @@
             this.DrinkFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DrinkFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.DrinkFlowLayoutPanel.Name = "DrinkFlowLayoutPanel";
-            this.DrinkFlowLayoutPanel.Size = new System.Drawing.Size(492, 469);
+            this.DrinkFlowLayoutPanel.Size = new System.Drawing.Size(484, 411);
             this.DrinkFlowLayoutPanel.TabIndex = 0;
             // 
-            // CartDataGridView
+            // BillNoTextBox
             // 
-            this.CartDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CartDataGridView.Location = new System.Drawing.Point(3, 65);
-            this.CartDataGridView.Name = "CartDataGridView";
-            this.CartDataGridView.Size = new System.Drawing.Size(274, 360);
-            this.CartDataGridView.TabIndex = 0;
+            this.BillNoTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.BillNoTextBox.Location = new System.Drawing.Point(49, 36);
+            this.BillNoTextBox.Name = "BillNoTextBox";
+            this.BillNoTextBox.ReadOnly = true;
+            this.BillNoTextBox.Size = new System.Drawing.Size(78, 20);
+            this.BillNoTextBox.TabIndex = 7;
             // 
-            // AddProductButton
+            // BillNoLabel
             // 
-            this.AddProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddProductButton.Location = new System.Drawing.Point(141, 485);
-            this.AddProductButton.Name = "AddProductButton";
-            this.AddProductButton.Size = new System.Drawing.Size(242, 51);
-            this.AddProductButton.TabIndex = 2;
-            this.AddProductButton.Text = "ADD PRODUCT";
-            this.AddProductButton.UseVisualStyleBackColor = true;
+            this.BillNoLabel.AutoSize = true;
+            this.BillNoLabel.Location = new System.Drawing.Point(3, 41);
+            this.BillNoLabel.Name = "BillNoLabel";
+            this.BillNoLabel.Size = new System.Drawing.Size(40, 13);
+            this.BillNoLabel.TabIndex = 6;
+            this.BillNoLabel.Text = "Bill No.";
             // 
-            // RemoveButton
+            // PurchaseButton
             // 
-            this.RemoveButton.Location = new System.Drawing.Point(183, 7);
-            this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(75, 23);
-            this.RemoveButton.TabIndex = 1;
-            this.RemoveButton.Text = "Remove";
-            this.RemoveButton.UseVisualStyleBackColor = true;
+            this.PurchaseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PurchaseButton.Location = new System.Drawing.Point(28, 485);
+            this.PurchaseButton.Name = "PurchaseButton";
+            this.PurchaseButton.Size = new System.Drawing.Size(230, 51);
+            this.PurchaseButton.TabIndex = 5;
+            this.PurchaseButton.Text = "PURCHASE";
+            this.PurchaseButton.UseVisualStyleBackColor = true;
             // 
-            // ClearButton
+            // TotalPriceLabel
             // 
-            this.ClearButton.Location = new System.Drawing.Point(183, 36);
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(75, 23);
-            this.ClearButton.TabIndex = 2;
-            this.ClearButton.Text = "Clear";
-            this.ClearButton.UseVisualStyleBackColor = true;
+            this.TotalPriceLabel.AutoSize = true;
+            this.TotalPriceLabel.Location = new System.Drawing.Point(85, 443);
+            this.TotalPriceLabel.Name = "TotalPriceLabel";
+            this.TotalPriceLabel.Size = new System.Drawing.Size(61, 13);
+            this.TotalPriceLabel.TabIndex = 4;
+            this.TotalPriceLabel.Text = "Total Price:";
             // 
             // TotalPriceTextBox
             // 
@@ -280,42 +297,59 @@
             this.TotalPriceTextBox.TabIndex = 3;
             this.TotalPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // TotalPriceLabel
+            // ClearButton
             // 
-            this.TotalPriceLabel.AutoSize = true;
-            this.TotalPriceLabel.Location = new System.Drawing.Point(85, 443);
-            this.TotalPriceLabel.Name = "TotalPriceLabel";
-            this.TotalPriceLabel.Size = new System.Drawing.Size(61, 13);
-            this.TotalPriceLabel.TabIndex = 4;
-            this.TotalPriceLabel.Text = "Total Price:";
+            this.ClearButton.Location = new System.Drawing.Point(183, 36);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearButton.TabIndex = 2;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
             // 
-            // PurchaseButton
+            // RemoveButton
             // 
-            this.PurchaseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PurchaseButton.Location = new System.Drawing.Point(28, 485);
-            this.PurchaseButton.Name = "PurchaseButton";
-            this.PurchaseButton.Size = new System.Drawing.Size(230, 51);
-            this.PurchaseButton.TabIndex = 5;
-            this.PurchaseButton.Text = "PURCHASE";
-            this.PurchaseButton.UseVisualStyleBackColor = true;
+            this.RemoveButton.Location = new System.Drawing.Point(183, 7);
+            this.RemoveButton.Name = "RemoveButton";
+            this.RemoveButton.Size = new System.Drawing.Size(75, 23);
+            this.RemoveButton.TabIndex = 1;
+            this.RemoveButton.Text = "Remove";
+            this.RemoveButton.UseVisualStyleBackColor = true;
             // 
-            // BillNoLabel
+            // CartDataGridView
             // 
-            this.BillNoLabel.AutoSize = true;
-            this.BillNoLabel.Location = new System.Drawing.Point(3, 41);
-            this.BillNoLabel.Name = "BillNoLabel";
-            this.BillNoLabel.Size = new System.Drawing.Size(40, 13);
-            this.BillNoLabel.TabIndex = 6;
-            this.BillNoLabel.Text = "Bill No.";
+            this.CartDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CartDataGridView.Location = new System.Drawing.Point(3, 65);
+            this.CartDataGridView.Name = "CartDataGridView";
+            this.CartDataGridView.Size = new System.Drawing.Size(274, 360);
+            this.CartDataGridView.TabIndex = 0;
             // 
-            // BillNoTextBox
+            // MovieTabPage
             // 
-            this.BillNoTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.BillNoTextBox.Location = new System.Drawing.Point(49, 36);
-            this.BillNoTextBox.Name = "BillNoTextBox";
-            this.BillNoTextBox.ReadOnly = true;
-            this.BillNoTextBox.Size = new System.Drawing.Size(78, 20);
-            this.BillNoTextBox.TabIndex = 7;
+            this.MovieTabPage.Controls.Add(this.MovieFlowLayoutPanel);
+            this.MovieTabPage.Location = new System.Drawing.Point(4, 22);
+            this.MovieTabPage.Name = "MovieTabPage";
+            this.MovieTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.MovieTabPage.Size = new System.Drawing.Size(490, 395);
+            this.MovieTabPage.TabIndex = 2;
+            this.MovieTabPage.Text = "Movie";
+            this.MovieTabPage.UseVisualStyleBackColor = true;
+            // 
+            // DescriptionTextBox
+            // 
+            this.DescriptionTextBox.Location = new System.Drawing.Point(16, 468);
+            this.DescriptionTextBox.Multiline = true;
+            this.DescriptionTextBox.Name = "DescriptionTextBox";
+            this.DescriptionTextBox.ReadOnly = true;
+            this.DescriptionTextBox.Size = new System.Drawing.Size(229, 68);
+            this.DescriptionTextBox.TabIndex = 3;
+            // 
+            // MovieFlowLayoutPanel
+            // 
+            this.MovieFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MovieFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.MovieFlowLayoutPanel.Name = "MovieFlowLayoutPanel";
+            this.MovieFlowLayoutPanel.Size = new System.Drawing.Size(484, 389);
+            this.MovieFlowLayoutPanel.TabIndex = 0;
             // 
             // MainMenu
             // 
@@ -344,6 +378,7 @@
             this.FoodTabPage.ResumeLayout(false);
             this.DrinkTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CartDataGridView)).EndInit();
+            this.MovieTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,5 +413,8 @@
         private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.TextBox BillNoTextBox;
+        private System.Windows.Forms.TextBox DescriptionTextBox;
+        private System.Windows.Forms.TabPage MovieTabPage;
+        private System.Windows.Forms.FlowLayoutPanel MovieFlowLayoutPanel;
     }
 }
