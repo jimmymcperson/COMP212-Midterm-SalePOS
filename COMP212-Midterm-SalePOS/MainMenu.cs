@@ -32,7 +32,6 @@ namespace COMP212_Midterm_SalePOS
         /// </summary>
         private void AboutDeveloperToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Program.aboutBox.Show();
         }
 
@@ -41,8 +40,16 @@ namespace COMP212_Midterm_SalePOS
         /// </summary>
         private void LogoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Hide();
+            this.Hide();
             Program.loginForm.Show();
+        }
+
+        /// <summary>
+        /// This handler updates the status bar with the selected window.
+        /// </summary>
+        private void MainMenu_Activated(object sender, EventArgs e)
+        {
+            CurrentFormToolStripStatusLabel.Text = "Main Menu";
         }
 
         /// <summary>
@@ -58,7 +65,6 @@ namespace COMP212_Midterm_SalePOS
         /// </summary>
         private void ManagementToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Program.managementForm.Show();
         }
     }

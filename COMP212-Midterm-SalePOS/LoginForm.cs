@@ -63,6 +63,8 @@ namespace COMP212_Midterm_SalePOS
                 if (Connection.QueryDatabase("select * from Account where Username = '" + UsernameTextBox.Text + "' and Password = '" + PasswordTextBox.Text + "'").Rows.Count > 0)
                 {
                     FailedLoginAttempts = 0;
+                    UsernameTextBox.Text = "";
+                    PasswordTextBox.Text = "";
                     this.Hide();
                     Program.mainMenu.Show();
                 }

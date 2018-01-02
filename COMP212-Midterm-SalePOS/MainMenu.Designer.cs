@@ -129,6 +129,7 @@
             this.MainMenuStrip = this.MainMenuMenuStrip;
             this.Name = "MainMenu";
             this.Text = "Main Menu";
+            this.Activated += new System.EventHandler(this.MainMenu_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenu_FormClosed);
             this.MainMenuMenuStrip.ResumeLayout(false);
             this.MainMenuMenuStrip.PerformLayout();
@@ -150,6 +151,6 @@
         private System.Windows.Forms.ToolStripMenuItem AboutDeveloperToolStripMenuItem;
         private System.Windows.Forms.StatusStrip MainStatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel StoreNameToolStripStatusLabel;
-        private System.Windows.Forms.ToolStripStatusLabel CurrentFormToolStripStatusLabel;
+        public System.Windows.Forms.ToolStripStatusLabel CurrentFormToolStripStatusLabel;
     }
 }

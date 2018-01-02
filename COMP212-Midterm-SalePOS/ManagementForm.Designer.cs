@@ -441,7 +441,7 @@
             this.Controls.Add(this.UserTextBox);
             this.Controls.Add(this.UserLabel);
             this.Name = "ManagementForm";
-            this.Text = "Add New Product";
+            this.Text = "Manage Products";
             this.Activated += new System.EventHandler(this.ManagementForm_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManagementForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.ProductsDataGridView)).EndInit();

@@ -70,6 +70,7 @@ namespace COMP212_Midterm_SalePOS
         private void ManagementForm_Activated(object sender, System.EventArgs e)
         {
             RefreshForm();
+            Program.mainMenu.CurrentFormToolStripStatusLabel.Text = "Manage Product";
         }
 
         /// <summary>
@@ -81,7 +82,6 @@ namespace COMP212_Midterm_SalePOS
             {
                 e.Cancel = true;
                 this.Hide();
-                Program.mainMenu.Show();
             }
         }
 
