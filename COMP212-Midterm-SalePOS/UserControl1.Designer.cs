@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.CustomerInfoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.CustomerIDLabel = new System.Windows.Forms.Label();
             this.CompanyNameLabel = new System.Windows.Forms.Label();
             this.ContactNameLabel = new System.Windows.Forms.Label();
@@ -40,67 +40,67 @@
             this.CountryLabel = new System.Windows.Forms.Label();
             this.PhoneLabel = new System.Windows.Forms.Label();
             this.FaxLabel = new System.Windows.Forms.Label();
-            this.CustomerIDTextBox = new System.Windows.Forms.TextBox();
             this.CompanyNameTextBox = new System.Windows.Forms.TextBox();
             this.ContactNameTextBox = new System.Windows.Forms.TextBox();
             this.ContactTitleTextBox = new System.Windows.Forms.TextBox();
             this.AddressTextBox = new System.Windows.Forms.TextBox();
-            this.CityTextBox = new System.Windows.Forms.TextBox();
             this.RegionTextBox = new System.Windows.Forms.TextBox();
             this.PostalCodeTextBox = new System.Windows.Forms.TextBox();
             this.CountryTextBox = new System.Windows.Forms.TextBox();
             this.PhoneTextBox = new System.Windows.Forms.TextBox();
             this.FaxTextBox = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.CustomerIDTextBox = new System.Windows.Forms.TextBox();
+            this.CityTextBox = new System.Windows.Forms.TextBox();
+            this.ManageTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.AddCustomerButton = new System.Windows.Forms.Button();
             this.EditCustomerButton = new System.Windows.Forms.Button();
             this.DeleteCustomerButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.CustomerInfoTableLayoutPanel.SuspendLayout();
+            this.ManageTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // CustomerInfoTableLayoutPanel
             // 
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.03125F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.34375F));
-            this.tableLayoutPanel1.Controls.Add(this.CustomerIDLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.CompanyNameLabel, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.ContactNameLabel, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.ContactTitleLabel, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.AddressLabel, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.CityLabel, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.RegionLabel, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.PostalCodeLabel, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.CountryLabel, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.PhoneLabel, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.FaxLabel, 3, 4);
-            this.tableLayoutPanel1.Controls.Add(this.CompanyNameTextBox, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.ContactNameTextBox, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.ContactTitleTextBox, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.AddressTextBox, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.RegionTextBox, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.PostalCodeTextBox, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.CountryTextBox, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.PhoneTextBox, 4, 3);
-            this.tableLayoutPanel1.Controls.Add(this.FaxTextBox, 4, 4);
-            this.tableLayoutPanel1.Controls.Add(this.CustomerIDTextBox, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.CityTextBox, 1, 5);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 13);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(640, 214);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.CustomerInfoTableLayoutPanel.ColumnCount = 5;
+            this.CustomerInfoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19F));
+            this.CustomerInfoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.CustomerInfoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2F));
+            this.CustomerInfoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.03125F));
+            this.CustomerInfoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.34375F));
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.CustomerIDLabel, 0, 0);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.CompanyNameLabel, 0, 1);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.ContactNameLabel, 0, 2);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.ContactTitleLabel, 0, 3);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.AddressLabel, 0, 4);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.CityLabel, 0, 5);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.RegionLabel, 3, 0);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.PostalCodeLabel, 3, 1);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.CountryLabel, 3, 2);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.PhoneLabel, 3, 3);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.FaxLabel, 3, 4);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.CompanyNameTextBox, 1, 1);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.ContactNameTextBox, 1, 2);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.ContactTitleTextBox, 1, 3);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.AddressTextBox, 1, 4);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.RegionTextBox, 4, 0);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.PostalCodeTextBox, 4, 1);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.CountryTextBox, 4, 2);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.PhoneTextBox, 4, 3);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.FaxTextBox, 4, 4);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.CustomerIDTextBox, 1, 0);
+            this.CustomerInfoTableLayoutPanel.Controls.Add(this.CityTextBox, 1, 5);
+            this.CustomerInfoTableLayoutPanel.Location = new System.Drawing.Point(14, 13);
+            this.CustomerInfoTableLayoutPanel.Name = "CustomerInfoTableLayoutPanel";
+            this.CustomerInfoTableLayoutPanel.RowCount = 6;
+            this.CustomerInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.CustomerInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.CustomerInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.CustomerInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.CustomerInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.CustomerInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.CustomerInfoTableLayoutPanel.Size = new System.Drawing.Size(640, 214);
+            this.CustomerInfoTableLayoutPanel.TabIndex = 1;
             // 
             // CustomerIDLabel
             // 
@@ -212,14 +212,6 @@
             this.FaxLabel.TabIndex = 10;
             this.FaxLabel.Text = "Fax :";
             // 
-            // CustomerIDTextBox
-            // 
-            this.CustomerIDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CustomerIDTextBox.Location = new System.Drawing.Point(124, 12);
-            this.CustomerIDTextBox.Name = "CustomerIDTextBox";
-            this.CustomerIDTextBox.Size = new System.Drawing.Size(185, 20);
-            this.CustomerIDTextBox.TabIndex = 11;
-            // 
             // CompanyNameTextBox
             // 
             this.CompanyNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -251,14 +243,6 @@
             this.AddressTextBox.Name = "AddressTextBox";
             this.AddressTextBox.Size = new System.Drawing.Size(185, 20);
             this.AddressTextBox.TabIndex = 15;
-            // 
-            // CityTextBox
-            // 
-            this.CityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CityTextBox.Location = new System.Drawing.Point(124, 191);
-            this.CityTextBox.Name = "CityTextBox";
-            this.CityTextBox.Size = new System.Drawing.Size(185, 20);
-            this.CityTextBox.TabIndex = 16;
             // 
             // RegionTextBox
             // 
@@ -300,24 +284,40 @@
             this.FaxTextBox.Size = new System.Drawing.Size(188, 20);
             this.FaxTextBox.TabIndex = 21;
             // 
-            // tableLayoutPanel2
+            // CustomerIDTextBox
             // 
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.AddCustomerButton, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.EditCustomerButton, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.DeleteCustomerButton, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.ClearButton, 3, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(14, 249);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(640, 50);
-            this.tableLayoutPanel2.TabIndex = 2;
+            this.CustomerIDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CustomerIDTextBox.Location = new System.Drawing.Point(124, 12);
+            this.CustomerIDTextBox.Name = "CustomerIDTextBox";
+            this.CustomerIDTextBox.Size = new System.Drawing.Size(185, 20);
+            this.CustomerIDTextBox.TabIndex = 11;
+            // 
+            // CityTextBox
+            // 
+            this.CityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CityTextBox.Location = new System.Drawing.Point(124, 191);
+            this.CityTextBox.Name = "CityTextBox";
+            this.CityTextBox.Size = new System.Drawing.Size(185, 20);
+            this.CityTextBox.TabIndex = 16;
+            // 
+            // ManageTableLayoutPanel
+            // 
+            this.ManageTableLayoutPanel.ColumnCount = 4;
+            this.ManageTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.ManageTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.ManageTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.ManageTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.ManageTableLayoutPanel.Controls.Add(this.AddCustomerButton, 0, 0);
+            this.ManageTableLayoutPanel.Controls.Add(this.EditCustomerButton, 1, 0);
+            this.ManageTableLayoutPanel.Controls.Add(this.DeleteCustomerButton, 2, 0);
+            this.ManageTableLayoutPanel.Controls.Add(this.ClearButton, 3, 0);
+            this.ManageTableLayoutPanel.Location = new System.Drawing.Point(14, 249);
+            this.ManageTableLayoutPanel.Name = "ManageTableLayoutPanel";
+            this.ManageTableLayoutPanel.RowCount = 1;
+            this.ManageTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ManageTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.ManageTableLayoutPanel.Size = new System.Drawing.Size(640, 50);
+            this.ManageTableLayoutPanel.TabIndex = 2;
             // 
             // AddCustomerButton
             // 
@@ -359,20 +359,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.ManageTableLayoutPanel);
+            this.Controls.Add(this.CustomerInfoTableLayoutPanel);
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(670, 312);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.CustomerInfoTableLayoutPanel.ResumeLayout(false);
+            this.CustomerInfoTableLayoutPanel.PerformLayout();
+            this.ManageTableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel CustomerInfoTableLayoutPanel;
         private System.Windows.Forms.Label CustomerIDLabel;
         private System.Windows.Forms.Label CompanyNameLabel;
         private System.Windows.Forms.Label ContactNameLabel;
@@ -395,7 +395,7 @@
         private System.Windows.Forms.TextBox CountryTextBox;
         private System.Windows.Forms.TextBox PhoneTextBox;
         private System.Windows.Forms.TextBox FaxTextBox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel ManageTableLayoutPanel;
         private System.Windows.Forms.Button AddCustomerButton;
         private System.Windows.Forms.Button EditCustomerButton;
         private System.Windows.Forms.Button DeleteCustomerButton;
