@@ -36,9 +36,9 @@ namespace COMP212_Midterm_SalePOS
         // METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
-        /// This method adds a row to the database based on field inputs.
+        /// This method adds a row to the database based on field inputs.  Refactor into one method if have time.
         /// </summary>
-        public void AddRow(int productID, string productName, string category, int quantity, int purchasePrice, int salePrice, string insertedBy, string description)
+        public void AddRow(int productID, string productName, string category, int quantity, double purchasePrice, double salePrice, string insertedBy, string description)
         {
             DateTime currentDate = DateTime.Today;
             OleDbCommand cmd = new OleDbCommand();
@@ -54,6 +54,28 @@ namespace COMP212_Midterm_SalePOS
             cmd.Parameters.AddWithValue("@InsertedBy", insertedBy);
             cmd.Parameters.AddWithValue("@InsertionDate", currentDate);
             cmd.Parameters.AddWithValue("@Description", description);
+            cmd.Connection = con;
+        }
+
+        /// <summary>
+        /// This method adds a row to the database based on field inputs. Refactor into one method if have time.
+        /// </summary>
+        public void AddRow(int customerID, string companyName, string contactName, string contactTitle, string address, string city, string region, string postalCode, string country, string phone)
+        {
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "insert into Customer (CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone)"
+            + " VALUES (@CustomerID, @CompanyName, @ContactName, @ContactTitle, @Address, @City, @Region, @PostalCode, @Country, @Phone)";
+            cmd.Parameters.AddWithValue("@CustomerID", customerID);
+            cmd.Parameters.AddWithValue("@CompanyName", companyName);
+            cmd.Parameters.AddWithValue("@ContactName", contactName);
+            cmd.Parameters.AddWithValue("@ContactTitle", contactTitle);
+            cmd.Parameters.AddWithValue("@Address", address);
+            cmd.Parameters.AddWithValue("@City", city);
+            cmd.Parameters.AddWithValue("@Region", region);
+            cmd.Parameters.AddWithValue("@PostalCode", postalCode);
+            cmd.Parameters.AddWithValue("@Country", country);
+            cmd.Parameters.AddWithValue("@Phone", phone);
             cmd.Connection = con;
 
             try
@@ -71,13 +93,12 @@ namespace COMP212_Midterm_SalePOS
             {
                 con.Close();
             }
-
         }
 
-        /// <summary>
-        /// This method commits changes to the database.
-        /// </summary>
-        public void CommitChanges(string statement, DataTable dt)
+            /// <summary>
+            /// This method commits changes to the database.
+            /// </summary>
+            public void CommitChanges(string statement, DataTable dt)
         {
             
             da = new OleDbDataAdapter(statement, con);

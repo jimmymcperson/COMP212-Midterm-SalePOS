@@ -39,7 +39,6 @@
             this.PostalCodeLabel = new System.Windows.Forms.Label();
             this.CountryLabel = new System.Windows.Forms.Label();
             this.PhoneLabel = new System.Windows.Forms.Label();
-            this.FaxLabel = new System.Windows.Forms.Label();
             this.CompanyNameTextBox = new System.Windows.Forms.TextBox();
             this.ContactNameTextBox = new System.Windows.Forms.TextBox();
             this.ContactTitleTextBox = new System.Windows.Forms.TextBox();
@@ -48,7 +47,6 @@
             this.PostalCodeTextBox = new System.Windows.Forms.TextBox();
             this.CountryTextBox = new System.Windows.Forms.TextBox();
             this.PhoneTextBox = new System.Windows.Forms.TextBox();
-            this.FaxTextBox = new System.Windows.Forms.TextBox();
             this.CustomerIDTextBox = new System.Windows.Forms.TextBox();
             this.CityTextBox = new System.Windows.Forms.TextBox();
             this.ManageTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -78,7 +76,6 @@
             this.CustomerInfoTableLayoutPanel.Controls.Add(this.PostalCodeLabel, 3, 1);
             this.CustomerInfoTableLayoutPanel.Controls.Add(this.CountryLabel, 3, 2);
             this.CustomerInfoTableLayoutPanel.Controls.Add(this.PhoneLabel, 3, 3);
-            this.CustomerInfoTableLayoutPanel.Controls.Add(this.FaxLabel, 3, 4);
             this.CustomerInfoTableLayoutPanel.Controls.Add(this.CompanyNameTextBox, 1, 1);
             this.CustomerInfoTableLayoutPanel.Controls.Add(this.ContactNameTextBox, 1, 2);
             this.CustomerInfoTableLayoutPanel.Controls.Add(this.ContactTitleTextBox, 1, 3);
@@ -87,7 +84,6 @@
             this.CustomerInfoTableLayoutPanel.Controls.Add(this.PostalCodeTextBox, 4, 1);
             this.CustomerInfoTableLayoutPanel.Controls.Add(this.CountryTextBox, 4, 2);
             this.CustomerInfoTableLayoutPanel.Controls.Add(this.PhoneTextBox, 4, 3);
-            this.CustomerInfoTableLayoutPanel.Controls.Add(this.FaxTextBox, 4, 4);
             this.CustomerInfoTableLayoutPanel.Controls.Add(this.CustomerIDTextBox, 1, 0);
             this.CustomerInfoTableLayoutPanel.Controls.Add(this.CityTextBox, 1, 5);
             this.CustomerInfoTableLayoutPanel.Location = new System.Drawing.Point(14, 13);
@@ -106,9 +102,10 @@
             // 
             this.CustomerIDLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomerIDLabel.AutoSize = true;
-            this.CustomerIDLabel.Location = new System.Drawing.Point(47, 22);
+            this.CustomerIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomerIDLabel.Location = new System.Drawing.Point(34, 22);
             this.CustomerIDLabel.Name = "CustomerIDLabel";
-            this.CustomerIDLabel.Size = new System.Drawing.Size(71, 13);
+            this.CustomerIDLabel.Size = new System.Drawing.Size(84, 13);
             this.CustomerIDLabel.TabIndex = 0;
             this.CustomerIDLabel.Text = "Customer ID :";
             // 
@@ -202,16 +199,6 @@
             this.PhoneLabel.TabIndex = 9;
             this.PhoneLabel.Text = "Phone :";
             // 
-            // FaxLabel
-            // 
-            this.FaxLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.FaxLabel.AutoSize = true;
-            this.FaxLabel.Location = new System.Drawing.Point(367, 162);
-            this.FaxLabel.Name = "FaxLabel";
-            this.FaxLabel.Size = new System.Drawing.Size(30, 13);
-            this.FaxLabel.TabIndex = 10;
-            this.FaxLabel.Text = "Fax :";
-            // 
             // CompanyNameTextBox
             // 
             this.CompanyNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -276,14 +263,6 @@
             this.PhoneTextBox.Size = new System.Drawing.Size(188, 20);
             this.PhoneTextBox.TabIndex = 20;
             // 
-            // FaxTextBox
-            // 
-            this.FaxTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.FaxTextBox.Location = new System.Drawing.Point(403, 152);
-            this.FaxTextBox.Name = "FaxTextBox";
-            this.FaxTextBox.Size = new System.Drawing.Size(188, 20);
-            this.FaxTextBox.TabIndex = 21;
-            // 
             // CustomerIDTextBox
             // 
             this.CustomerIDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -327,6 +306,7 @@
             this.AddCustomerButton.TabIndex = 0;
             this.AddCustomerButton.Text = "Add Customer";
             this.AddCustomerButton.UseVisualStyleBackColor = true;
+            this.AddCustomerButton.Click += new System.EventHandler(this.AddCustomerButton_Click);
             // 
             // EditCustomerButton
             // 
@@ -354,6 +334,7 @@
             this.ClearButton.TabIndex = 3;
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // UserControl1
             // 
@@ -383,7 +364,6 @@
         private System.Windows.Forms.Label PostalCodeLabel;
         private System.Windows.Forms.Label CountryLabel;
         private System.Windows.Forms.Label PhoneLabel;
-        private System.Windows.Forms.Label FaxLabel;
         private System.Windows.Forms.TextBox CustomerIDTextBox;
         private System.Windows.Forms.TextBox CompanyNameTextBox;
         private System.Windows.Forms.TextBox ContactNameTextBox;
@@ -394,7 +374,6 @@
         private System.Windows.Forms.TextBox PostalCodeTextBox;
         private System.Windows.Forms.TextBox CountryTextBox;
         private System.Windows.Forms.TextBox PhoneTextBox;
-        private System.Windows.Forms.TextBox FaxTextBox;
         private System.Windows.Forms.TableLayoutPanel ManageTableLayoutPanel;
         private System.Windows.Forms.Button AddCustomerButton;
         private System.Windows.Forms.Button EditCustomerButton;
