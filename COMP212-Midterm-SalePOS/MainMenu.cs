@@ -56,6 +56,14 @@ namespace COMP212_Midterm_SalePOS
         }
 
         /// <summary>
+        /// This handler clears all items from the cart.
+        /// </summary>
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            CartDataGridView.Rows.Clear();
+        }
+
+        /// <summary>
         /// This handler opens the customer form.
         /// </summary>
         private void CustomersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,9 +101,12 @@ namespace COMP212_Midterm_SalePOS
         /// </summary>
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            int BillNoQueryResult;
             RefreshMenu("select * from Product where Category = 'Food'", FoodFlowLayoutPanel);
             RefreshMenu("select * from Product where Category = 'Drink'", DrinkFlowLayoutPanel);
             RefreshMenu("select * from Product where Category = 'Movie'", MovieFlowLayoutPanel);
+            BillNoQueryResult = (Connection.QueryDatabase("select MAX(OrderID) from [Order]").Rows[0].Field<int>(0)) + 1;
+            BillNoTextBox.Text = BillNoQueryResult.ToString();
         }
 
         /// <summary>
@@ -117,6 +128,33 @@ namespace COMP212_Midterm_SalePOS
             RefreshMenu("select * from Product where Category = 'Food'", FoodFlowLayoutPanel);
             RefreshMenu("select * from Product where Category = 'Drink'", DrinkFlowLayoutPanel);
             RefreshMenu("select * from Product where Category = 'Movie'", MovieFlowLayoutPanel);
+        }
+
+        /// <summary>
+        /// This handler removes items from the cart.
+        /// </summary>
+        private void RemoveButton_Click(object sender, EventArgs e)
+        {
+            if (CartDataGridView.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in CartDataGridView.SelectedRows)
+                {
+                    CartDataGridView.Rows.RemoveAt(row.Index);
+                }
+            }
+        }
+
+        /// <summary>
+        /// This handler updates the menu based on search text.
+        /// </summary>
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            FoodFlowLayoutPanel.Controls.Clear();
+            DrinkFlowLayoutPanel.Controls.Clear();
+            MovieFlowLayoutPanel.Controls.Clear();
+            RefreshMenu(string.Format("select * from Product where Category = 'Food' and ProductName like '{0}%'", SearchTextBox.Text), FoodFlowLayoutPanel);
+            RefreshMenu(string.Format("select * from Product where Category = 'Drink' and ProductName like '{0}%'", SearchTextBox.Text), FoodFlowLayoutPanel);
+            RefreshMenu(string.Format("select * from Product where Category = 'Movie' and ProductName like '{0}%'", SearchTextBox.Text), FoodFlowLayoutPanel);
         }
 
         // METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -155,16 +193,6 @@ namespace COMP212_Midterm_SalePOS
                 tab.Controls.Add(pic);
                 ms.Dispose();
             }
-        }
-
-        private void SearchTextBox_TextChanged(object sender, EventArgs e)
-        {
-            FoodFlowLayoutPanel.Controls.Clear();
-            DrinkFlowLayoutPanel.Controls.Clear();
-            MovieFlowLayoutPanel.Controls.Clear();
-            RefreshMenu(string.Format("select * from Product where Category = 'Food' and ProductName like '{0}%'", SearchTextBox.Text), FoodFlowLayoutPanel);
-            RefreshMenu(string.Format("select * from Product where Category = 'Drink' and ProductName like '{0}%'", SearchTextBox.Text), FoodFlowLayoutPanel);
-            RefreshMenu(string.Format("select * from Product where Category = 'Movie' and ProductName like '{0}%'", SearchTextBox.Text), FoodFlowLayoutPanel);
         }
     }
 }

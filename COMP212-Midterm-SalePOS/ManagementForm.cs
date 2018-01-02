@@ -86,9 +86,9 @@ namespace COMP212_Midterm_SalePOS
         }
 
         /// <summary>
-        /// This handler populates the form on load.
+        /// This handler populates the form on shown.
         /// </summary>
-        private void ManagementForm_Load(object sender, System.EventArgs e)
+        private void ManagementForm_Shown(object sender, System.EventArgs e)
         {
             RefreshForm();
         }

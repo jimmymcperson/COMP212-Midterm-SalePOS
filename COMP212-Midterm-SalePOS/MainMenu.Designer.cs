@@ -58,11 +58,11 @@
             this.RemoveButton = new System.Windows.Forms.Button();
             this.CartDataGridView = new System.Windows.Forms.DataGridView();
             this.RefreshButton = new System.Windows.Forms.Button();
+            this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.MainMenuMenuStrip.SuspendLayout();
             this.MainStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).BeginInit();
@@ -333,6 +333,7 @@
             this.ClearButton.TabIndex = 2;
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // RemoveButton
             // 
@@ -342,9 +343,11 @@
             this.RemoveButton.TabIndex = 1;
             this.RemoveButton.Text = "Remove";
             this.RemoveButton.UseVisualStyleBackColor = true;
+            this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
             // CartDataGridView
             // 
+            this.CartDataGridView.AllowUserToAddRows = false;
             this.CartDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CartDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductID,
@@ -353,7 +356,6 @@
             this.Price});
             this.CartDataGridView.Location = new System.Drawing.Point(3, 65);
             this.CartDataGridView.Name = "CartDataGridView";
-            this.CartDataGridView.RowHeadersVisible = false;
             this.CartDataGridView.Size = new System.Drawing.Size(274, 360);
             this.CartDataGridView.TabIndex = 0;
             // 
@@ -366,6 +368,14 @@
             this.RefreshButton.Text = "Refresh Menu";
             this.RefreshButton.UseVisualStyleBackColor = true;
             this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
+            // 
+            // SearchTextBox
+            // 
+            this.SearchTextBox.Location = new System.Drawing.Point(12, 14);
+            this.SearchTextBox.Name = "SearchTextBox";
+            this.SearchTextBox.Size = new System.Drawing.Size(372, 20);
+            this.SearchTextBox.TabIndex = 1;
+            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // ProductID
             // 
@@ -385,20 +395,13 @@
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
+            this.Quantity.Width = 50;
             // 
             // Price
             // 
             this.Price.HeaderText = "Price";
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
-            // 
-            // SearchTextBox
-            // 
-            this.SearchTextBox.Location = new System.Drawing.Point(12, 14);
-            this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(372, 20);
-            this.SearchTextBox.TabIndex = 1;
-            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // MainMenu
             // 
@@ -466,10 +469,10 @@
         private System.Windows.Forms.TabPage MovieTabPage;
         private System.Windows.Forms.FlowLayoutPanel MovieFlowLayoutPanel;
         private System.Windows.Forms.Button RefreshButton;
+        private System.Windows.Forms.TextBox SearchTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.TextBox SearchTextBox;
     }
 }
