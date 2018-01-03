@@ -166,8 +166,8 @@ namespace COMP212_Midterm_SalePOS
             DrinkFlowLayoutPanel.Controls.Clear();
             MovieFlowLayoutPanel.Controls.Clear();
             RefreshMenu(string.Format("select * from Product where Category = 'Food' and ProductName like '{0}%'", SearchTextBox.Text), FoodFlowLayoutPanel);
-            RefreshMenu(string.Format("select * from Product where Category = 'Drink' and ProductName like '{0}%'", SearchTextBox.Text), FoodFlowLayoutPanel);
-            RefreshMenu(string.Format("select * from Product where Category = 'Movie' and ProductName like '{0}%'", SearchTextBox.Text), FoodFlowLayoutPanel);
+            RefreshMenu(string.Format("select * from Product where Category = 'Drink' and ProductName like '{0}%'", SearchTextBox.Text), DrinkFlowLayoutPanel);
+            RefreshMenu(string.Format("select * from Product where Category = 'Movie' and ProductName like '{0}%'", SearchTextBox.Text), MovieFlowLayoutPanel);
         }
 
         // METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -205,6 +205,26 @@ namespace COMP212_Midterm_SalePOS
                 // add picturebox to the menu
                 tab.Controls.Add(pic);
                 ms.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// This handler updates the price when a cart item is removed.
+        /// </summary>
+        private void CartDataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            if (CartDataGridView.Rows.Count > 0)
+            {
+                double total = 0;
+                for (int i = 0; i < CartDataGridView.Rows.Count; i++)
+                {
+                    total += Convert.ToDouble(CartDataGridView.Rows[i].Cells["Price"].Value);
+                }
+                TotalPriceTextBox.Text = total.ToString();
+            }
+            else
+            {
+                TotalPriceTextBox.Text = "";
             }
         }
     }
